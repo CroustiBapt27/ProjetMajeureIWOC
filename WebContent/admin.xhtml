@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<title>Administration</title>
+
+   	<!-- Loading Bootstrap -->
+    <link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+
+    <!-- Loading Flat UI -->
+    <link href="dist/css/flat-ui.css" rel="stylesheet"></link>
+    <link href="docs/assets/css/demo.css" rel="stylesheet"></link>
+
+    <link rel="shortcut icon" href="img/mario.ico"></link>
+
+	<!-- CSS perso -->
+	<link href="css/admin.css" rel="stylesheet"></link>
+</head>
+
+<body>
+
+
+	<div class="baniere" align="center">
+			<div class="col-xs-12">
+				<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#navbar-collapse-01">
+						<span class="sr-only">Toggle navigation</span>
+					</button>
+					<a class="navbar-brand" href="index.html">Projet Majeure</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse-01">
+					<ul class="nav navbar-nav navbar-right">
+					<li class="navbar-right"><a class="fui-user" href="userLogin.xhtml"> Log in</a></li>
+					</ul>
+					<form class="navbar-form navbar-right"></form>
+				</div>
+				</nav>
+			</div>
+	</div><!-- /baniere -->
+
+	<div class="contenu">
+		<h4 class="demo-logo" align="center">
+			Administration page
+		</h4>
+
+		<div class="cadre-admin" align="center">
+			<paragraph>Robot state : <quote>running ...</quote></paragraph>
+			<div class="boutons start">
+				<a href="#fakelink" class="btn-lg btn-primary fui-play"> Start</a>
+			</div>
+		  	<div class="boutons stop">
+		 	 	<a href="#fakelink" class="btn-lg btn-danger fui-pause"> Stop</a>
+		  	</div>
+		</div>	
+	</div>
+	
+	<footer>
+      <div class="container">
+            <p>
+              Eliott Joulot, Baptiste Blanc, Dorian Bouchet, Quentin Debout<br/>
+              Our project : <a href="docs/Cahier_des_charges.pdf">technical documentation</a>
+            </p>
+
+      </div>
+    </footer>
+	
+	
+
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <script src="dist/js/vendor/video.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
+    <script src="docs/assets/js/application.js"></script>
+
+    <script>
+      videojs.options.flash.swf = "dist/js/vendors/video-js.swf"
+    </script>
+
+</body>
+</html>
