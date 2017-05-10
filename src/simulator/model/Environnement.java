@@ -1,4 +1,4 @@
-package model.simulator;
+package simulator.model;
 
 public class Environnement {
 	private int[][] matrice_env;

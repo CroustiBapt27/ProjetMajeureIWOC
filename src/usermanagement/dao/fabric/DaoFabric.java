@@ -1,6 +1,6 @@
-package dao;
+package usermanagement.dao.fabric;
 
-import dao.UserDao;
+import usermanagement.dao.model.UserDao;
 
 public class DaoFabric {
 

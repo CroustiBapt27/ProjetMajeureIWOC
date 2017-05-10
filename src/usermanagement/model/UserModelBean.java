@@ -1,4 +1,4 @@
-package model;
+package usermanagement.model;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;

@@ -1,15 +1,15 @@
-package controler;
+package usermanagement.controler;
 
 import java.util.Map;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import model.LoginBean;
-import model.UserModelBean;
-import model.UserSubmissionModelBean;
-import dao.DaoFabric;
-import dao.UserDao;
+import usermanagement.model.LoginBean;
+import usermanagement.model.UserModelBean;
+import usermanagement.model.UserSubmissionModelBean;
+import usermanagement.dao.fabric.DaoFabric;
+import usermanagement.dao.model.UserDao;
 
 @ManagedBean
 @ApplicationScoped // application scope pour offrir un point d'entrée unique à l'ensemble des clients
