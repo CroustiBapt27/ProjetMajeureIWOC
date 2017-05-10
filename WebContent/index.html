@@ -19,12 +19,14 @@
     	<link rel="shortcut icon" href="img/mario.ico"></link>
 	
 	<script src="lib/jquery-1.11.1.min.js"></script>
-	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="js/BoutonAction.js"></script>
 	<script src="js/Graph.js"></script>
 	<script src="js/Canvas.js"></script>
 	<script src="js/ajax.js"></script>
 	<script src="js/jquery.cookie.js"></script>
+		<!-- highrcharts -->
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	
 </head>
 
@@ -56,7 +58,6 @@
 		</div> <!--/col-xs-12-->
 	</div> <!--/baniere-->
 
-	          <a href="#fakelink" class="btn btn-block btn-lg btn-primary">Primary Button</a>
 	
 
 	<!----------  CONTENU  ---------->
@@ -116,7 +117,7 @@
 		<div id="graphiques"> 
 			<div class="col-xs-3">
 			  	<h3 class="demo-panel-title">Data</h3>
-			  	
+			  	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			 </div> <!-- /checkboxes col-xs-3 -->
 		</div>
 	</div>
