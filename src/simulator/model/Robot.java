@@ -4,9 +4,9 @@ public class Robot {
 	private int x_robot;
 	private int y_robot;
 	private int envi_robot[][];
-	private char orient_robot;
+	private Orientation orient_robot;
 	
-	public Robot(int x_robot,int y_robot,char orient_robot){
+	public Robot(int x_robot,int y_robot,Orientation orient_robot){
 		this.x_robot=x_robot;
 		this.y_robot=y_robot;
 		this.orient_robot=orient_robot;
@@ -26,25 +26,25 @@ public class Robot {
 		return envi_robot;
 	}
 
-	public char getOrient_robot() {
+	public Orientation getOrient_robot() {
 		return orient_robot;
 	}
-	public void deplacementRobot(char sens_deplacement) {	//rajouter conditions si robot au bords
-		if(sens_deplacement=='N') {
+	public void deplacementRobot(Deplacement sens_deplacement) {	//rajouter conditions si robot au bords
+		if(Deplacement.UP_ARROW.equals(sens_deplacement)) {
 			this.y_robot++;
-			this.orient_robot='N';
+			this.orient_robot=Orientation.HAUT;
 		}
-		if(sens_deplacement=='S') {
+		if(Deplacement.DOWN_ARROW.equals(sens_deplacement)) {
 			this.y_robot--;
-			this.orient_robot='S';
+			this.orient_robot=Orientation.BAS;
 		}
-		if(sens_deplacement=='E') {
+		if(Deplacement.RIGHT_ARROW.equals(sens_deplacement)) {
 			this.x_robot++;
-			this.orient_robot='E';
+			this.orient_robot=Orientation.DROITE;
 		}
-		if(sens_deplacement=='W') {
+		if(Deplacement.LEFT_ARROW.equals(sens_deplacement)) {
 			this.x_robot--;
-			this.orient_robot='W';
+			this.orient_robot=Orientation.GAUCHE;
 		}
 	}
 	
