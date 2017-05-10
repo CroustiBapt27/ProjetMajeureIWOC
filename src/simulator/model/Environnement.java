@@ -3,7 +3,7 @@ package simulator.model;
 public class Environnement {
 	private int[][] matrice_env;
 	private int taille_x=10, taille_y=10;
-	private int pourcentage_obstacle=5;
+	private double pourcentage_obstacle=5;
 	
 	public Environnement(int taille_x, int taille_y, double pourcentage_obstacle) {
 		matrice_env=new int[taille_x][taille_y];	
