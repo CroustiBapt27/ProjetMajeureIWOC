@@ -1,77 +1,60 @@
-$(document).ready(function() {	
-	
-	
-/*	setInterval(function(){
-		$.get("rest/index/env",function(data, status) { 
-			document.getElementById("mesures").innerHTML = "<h4>Mesures:</h4>";
-			$("#mesures").append("<h5> -------------------------- </h5>");			
-			 for(i in data.data){
-			 $("#mesures").append("<h5> "+data.data[i].name+ " = " + data.data[i].value +"</h5>");
-			 }
-			//alert("Get Done received data: " + data + "\nStatus: " + status);
-			console.log("Get Done received data: " + data + "\nStatus: " + status);
-			//alert("Done");
-		});
-		console.log('test');
-	},5000);*/	
+/*
+ * Gestion des boutons
+ * 
+ */
 
+$(document).ready(function(){
+	// ____________ UP ____________
+	$("#ButtonUp").click(function(){
+		$.post("rest/cmd/UP",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+		});
 	
-	$("#ButtonUp").click(function() {
-		  $.ajax({
-		       url : 'rest/index/UP', // La ressource ciblée
-		       type : 'POST', // Le type de la requête HTTP.
-		       data : "{\"login\":" + $.cookie('login') + ",\"token\":\""+ $.cookie('token')+"\"}",
-		       success: function(data,status){
-		    	  // alert("retour: " + data.etat);
-		       }
+	// ____________ DOWN ____________
+	$("#ButtonDown").click(function(){
+		$.post("rest/cmd/DOWN",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
 		});
-	});	
 	
-	$("#ButtonDown").click(function() {
-		  $.ajax({
-		       url : 'rest/index/DOWN', // La ressource ciblée
-		       type : 'POST', // Le type de la requête HTTP.
-		       data : "{\"login\":" + $.cookie('login') + ",\"token\":\""+ $.cookie('token')+"\"}",
-		       success: function(data,status){
-		    	  // alert("retour: " + data.etat);
-		       }
+	// ____________ LEFT ____________
+	$("#ButtonLeft").click(function(){
+		$.post("rest/cmd/LEFT",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
 		});
-	});
 	
-	$("#ButtonLeft").click(function() {
-		  $.ajax({
-		       url : 'rest/index/LEFT', // La ressource ciblée
-		       type : 'POST', // Le type de la requête HTTP.
-		       data : "{\"login\":" + $.cookie('login') + ",\"token\":\""+ $.cookie('token')+"\"}",
-		       success: function(data,status){
-		    	  // alert("retour: " + data.etat);
-		       }
+	// ____________ RIGHT ____________
+	$("#ButtonRight").click(function(){
+		$.post("rest/cmd/RIGHT",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
 		});
+	  
+	// ____________ RESET ____________
+	  $("#ButtonReset").click(function(){
+		  	$.get("rest/cmd/env",
+	  		  function(data,status){
+		  		
+		  		for(i in data.data){
+		  			$("#myContent").append("<h6>---------------------------</h6>");
+		  			$("#myContent").append("<h5> X:"+data.data[i].x+",Y:"+data.data[i].y+"</h5>");
+		  			$("#myContent").append("<h5> Value:"+data.data[i].val+"</h5>");
+		  			$("#myContent").append("<h6>---------------------------</h6>");
+		  			$("#mylastContent").text(data.data[i].val);
+		  		}
+	  		    alert("Get Done received data: " + data + "\nStatus: " + status);
+	  	});    
 	});
-	
-	$("#ButtonRight").click(function() {
-		  $.ajax({
-			   url : 'rest/index/RIGHT', // La ressource ciblée
-		       type : 'POST', // Le type de la requête HTTP.
-		       data : "{\"login\":" + $.cookie('login') + ",\"token\":\""+ $.cookie('token')+"\"}",
-		       success: function(data,status){
-		    	  // alert("retour: " + data.etat);
-		       }
-		});
-	});
-
-	$("#ButtonRefresh").click(function() {
-		$.get("rest/index/env",
-		function (data, status) {
-			document.getElementById("myContent").innerHTML = "<h4>REFRESHED</h4>";
-			document.getElementById("mesures").innerHTML = "<h4>Mesures:</h4>";
-			$("#mesures").append("<h5> -------------------------- </h5>");			
-			 for(i in data.data){
-			 $("#mesures").append("<h5> "+data.data[i].name+ " = " + data.data[i].value +"</h5>");			 			
-			 } 
-		});
-	});
-		
 });
 
 

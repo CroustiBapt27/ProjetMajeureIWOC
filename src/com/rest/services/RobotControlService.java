@@ -41,9 +41,29 @@ public class RobotControlService {
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("UP")
-		public String goUp()
-				{
+		public String goUp() {
 			return "UP Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("DOWN")
+		public String goDown() {
+			return "DOWN Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("LEFT")
+		public String goLeft() {
+			return "LEFT Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("RIGHT")
+		public String goRight() {
+			return "RIGHT Done";
 		}
 		
 		@GET
