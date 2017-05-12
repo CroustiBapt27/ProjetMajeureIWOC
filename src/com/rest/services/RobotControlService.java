@@ -40,6 +40,34 @@ public class RobotControlService {
 		
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
+		@Path("CHECK1")
+		public String showRobot() {
+			return "showRobot Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("CHECK2")
+		public String displayPath() {
+			return "displayPath Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("CHECK3")
+		public String displayObstacles() {
+			return "displayObstacles Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("CHECK4")
+		public String autoMapping() {
+			return "autoMapping Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
 		@Path("UP")
 		public String goUp() {
 			return "UP Done";

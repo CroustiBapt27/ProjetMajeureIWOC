@@ -4,6 +4,42 @@
  */
 
 $(document).ready(function(){
+	// ____________ CHECK 1 ____________
+	$("#checkbox1").click(function(){
+		$.post("rest/cmd/CHECK1",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+		});
+	
+	// ____________ CHECK 2 ____________
+	$("#checkbox2").click(function(){
+		$.post("rest/cmd/CHECK2",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+		});
+	
+	// ____________ CHECK 3 ____________
+	$("#checkbox3").click(function(){
+		$.post("rest/cmd/CHECK3",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+		});
+	
+	// ____________ CHECK 4 ____________
+	$("#checkbox4").click(function(){
+		$.post("rest/cmd/CHECK4",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+		});
+	
 	// ____________ UP ____________
 	$("#ButtonUp").click(function(){
 		$.post("rest/cmd/UP",
