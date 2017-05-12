@@ -3,7 +3,7 @@ var cptCommande=0;
 $(document).ready(function(){
   	//identification hello, récupérer identifiant
 	
-	$.post("rest/cmd/id",
+	$.post("rest/index/id",
 	  		  {},
 	  		  function(data,status){
 	  			$.cookie('login', data.login, { path: '/' });
@@ -13,7 +13,7 @@ $(document).ready(function(){
 	  	});
 	setInterval(function(){
 		$.ajax({
-		       url : 'rest/cmd/check', // La ressource ciblée
+		       url : 'rest/index/check', // La ressource ciblée
 		       type : 'POST', // Le type de la requête HTTP.
 		       data : "{\"login\":" + $.cookie('login') + ",\"cptCommande\":\""+cptCommande+"\"}",
 		       success: function(data,status){
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 	   	//demande connection : synchro puis bloquer + envoi identifiant
 	  $.ajax({
-	       url : 'rest/cmd/conn', // La ressource ciblée
+	       url : 'rest/index/conn', // La ressource ciblée
 	       type : 'POST', // Le type de la requête HTTP.
 	       data : "{\"login\":" + $.cookie('login') + ",\"token\":\""+ $.cookie('token')+"\"}",
 	       success: function(data,status){

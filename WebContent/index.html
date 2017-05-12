@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<!-------------------  HEAD  ------------------->
+ <head>
     <meta charset="utf-8">
 	<title>index</title>
 	
-		<!-- CSS perso -->
-	<link href="css/index.css" rel="stylesheet"></link>
-   		<!-- Loading Bootstrap -->
-    	<link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
-    		<!-- Loading Flat UI -->
-    	<link href="dist/css/flat-ui.css" rel="stylesheet"></link>
-    	<link href="docs/assets/css/demo.css" rel="stylesheet"></link>
-    	<link rel="shortcut icon" href="img/pkm.ico"></link>
-	
-	<script src="lib/jquery-1.11.1.min.js"></script>
-	<script src="js/BoutonAction.js"></script>
-	<script src="js/Graph.js"></script>
-	<script src="js/Canvas.js"></script>
-	<script src="js/ajax.js"></script>
-	<script src="js/jquery.cookie.js"></script>
-		<!-- highrcharts -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="code/highcharts.js"></script>
-	<script src="code/modules/exporting.js"></script>
-	<script src="js/script-graphiques.js"></script>
+	<!---- CSS perso ---->
+		<link href="css/index.css" rel="stylesheet"></link>
+   	<!---- Loading Bootstrap ---->
+    		<link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+    	<!---- Loading Flat UI ---->
+	    	<link href="dist/css/flat-ui.css" rel="stylesheet"></link>
+	    	<link href="docs/assets/css/demo.css" rel="stylesheet"></link>
+	    	<link rel="shortcut icon" href="img/pkm.ico"></link>
+	<!---- javascript ---->	
+		<script src="lib/jquery-1.11.1.min.js"></script>
+		<script src="js/BoutonAction.js"></script>
+		<script src="js/Graph.js"></script>
+		<script src="js/Canvas.js"></script>
+		<script src="js/ajax.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+	<!---- highrcharts ---->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="code/highcharts.js"></script>
+		<script src="code/modules/exporting.js"></script>
+		<script src="js/script-graphiques.js"></script>
 		
 </head>
 
-<!----------  BODY  ---------->
+<!-------------------  BODY  ------------------->
 <body>
 	
-	<!----------  BANIÈRE  ---------->
+	<!-------------------  BANIÈRE  ------------------->
 	<div class="baniere" align="center">
 		<div class="col-xs-12">
 			<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
@@ -57,10 +59,10 @@
 
 	
 
-	<!----------  CONTENU  ---------->
+	<!-------------------  CONTENU  ------------------->
 	<div id="contenu">	
 		<div id="main"> 
-		<!-- Parametres -->
+		<!---- Parametres ---->
 			 <div id="menu"> 
 			 	<div class="col-xs-3" style="white-space:nowrap">
 			 		<h3 class="demo-panel-title">Parameters</h3>
@@ -81,36 +83,37 @@
 			          <h3 class="demo-panel-title">Controler</h3>
 			          <div class="fleches-directionnels">
 			          	 <div class="fleche haut">
-						  	<a href="#fakelink" class="btn-lg btn-primary fui-triangle-up"></a>
+						  	<a id="ButtonUp" class="btn-lg btn-primary fui-triangle-up"></a>
 						  </div>
 			          </div>
 			          <div class="fleches-directionnels">
 						  <div class="fleche gauche">
-						  	<a href="#fakelink" class="btn-lg btn-primary fui-arrow-left"></a>
+						  	<a id="ButtonDown" class="btn-lg btn-primary fui-arrow-left"></a>
 						  </div>
 						  <div class="fleche bas">
-						 	 <a href="#fakelink" class="btn-lg btn-primary fui-triangle-down"></a>
+						 	 <a id="ButtonLeft" class="btn-lg btn-primary fui-triangle-down"></a>
 						  </div>
 						  <div class="fleche droite">
-						  	<a href="#fakelink" class="btn-lg btn-primary fui-arrow-right"></a>
+						  	<a id="ButtonRight" class="btn-lg btn-primary fui-arrow-right"></a>
 						  </div>
 					</div>
 					
 					<div class="col-xs-3">
-          				<a href="#fakelink" class="bouton-reset btn btn-lg btn-inverse">Reset</a>
+          				<a id="ButtonRefresh" class="bouton-reset btn btn-lg btn-inverse">Reset</a>
         				</div>
 					
 			</div>
 		</div>
 		
-		<!-- Map -->
+		<!---- Map ---->
 			 <div id="map"> 
 				  <div class="col-xs-3">
 				  	<h3 class="demo-panel-title">Map</h3>
 				  </div> 
 			 </div>
 		</div>
-		<!-- Graphiques  -->
+		
+		<!---- Graphiques  ---->
 		<div id="graphiques"> 
 			<div class="col-xs-3">
 			  	<h3 class="demo-panel-title">Data</h3>
@@ -127,7 +130,7 @@
 	</div>
 	
 	
-	<!----------  FOOTER  ---------->
+	<!-------------------  FOOTER  ------------------->
 	<footer>
       <div class="container">
             <p>
@@ -138,7 +141,7 @@
       </div>
     </footer>
 	
-	<!----------  SCRIPTS  ---------->
+	<!-------------------  SCRIPTS  ------------------->
 	<script src="dist/js/vendor/jquery.min.js"></script>
     	<script src="dist/js/vendor/video.js"></script>
     	<script src="dist/js/flat-ui.min.js"></script>

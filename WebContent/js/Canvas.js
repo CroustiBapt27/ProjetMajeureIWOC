@@ -1,5 +1,5 @@
 /**
- * 
+ * Gestion du Canvas
  */
 
 setInterval(function(){$.get("rest/cmd/trajectoire",function(data, status) { 
@@ -81,10 +81,9 @@ setInterval(function(data, status) {
 			}
 		})
 	}
-	
-
-	 
+		 
 }, 100);
+
 function DessinerTriangle(x_robot,y_robot,orientation,context){
 	context.fillStyle='black';
 	context.save();	
