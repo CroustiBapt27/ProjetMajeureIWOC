@@ -6,14 +6,21 @@
     <meta charset="utf-8">
 	<title>index</title>
 	
-	<!---- CSS perso ---->
-		<link href="css/index.css" rel="stylesheet"></link>
+
+
+	
    	<!---- Loading Bootstrap ---->
     		<link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
     	<!---- Loading Flat UI ---->
 	    	<link href="dist/css/flat-ui.css" rel="stylesheet"></link>
 	    	<link href="docs/assets/css/demo.css" rel="stylesheet"></link>
 	    	<link rel="shortcut icon" href="img/pkm.ico"></link>
+	    	
+	    	    	<!-- CSS perso -->
+	<link href="css/index.css" rel="stylesheet"></link>
+	<link href="css/canvas.css" rel="stylesheet"></link>
+	
+	
 	<!---- javascript ---->	
 		<script src="lib/jquery-1.11.1.min.js"></script>
 		<script src="js/BoutonAction.js"></script>
@@ -110,15 +117,15 @@
 			</div>
 		</div>
 		
-		<!---- Map ---->
-			 <div id="map"> 
-				  <div class="col-xs-3">
-				  	<h3 class="demo-panel-title">Map</h3>
-				  	<div>
-				  	<canvas height='480' width='640'></canvas>
-				  	</div>
-				  	
-				  </div> 
+		<!-- Map -->
+			<div id="map"> 
+				<div class="col-xs-3">
+				  	<h3 class="demo-panel-title">Map</h3>			  	
+				</div> 
+				<div id="canvas_map">
+				  	<canvas ></canvas>
+				</div>
+
 			 </div>
 		</div>
 		
