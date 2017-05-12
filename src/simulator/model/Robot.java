@@ -3,15 +3,14 @@ package simulator.model;
 public class Robot {
 	private int x_robot;
 	private int y_robot;
-	private int envi_robot[][];
+	private Environnement envi_robot;
 	private Orientation orient_robot;
 	
-	public Robot(int x_robot,int y_robot,Orientation orient_robot){
+	public Robot(int x_robot,int y_robot,Environnement envi_robot, Orientation orient_robot){
 		this.x_robot=x_robot;
 		this.y_robot=y_robot;
+		this.envi_robot=envi_robot;
 		this.orient_robot=orient_robot;
-		
-		
 	}
 
 	public int getX_robot() {
@@ -22,7 +21,7 @@ public class Robot {
 		return y_robot;
 	}
 
-	public int[][] getEnvi_robot() {
+	public Environnement getEnvi_robot() {
 		return envi_robot;
 	}
 
