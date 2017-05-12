@@ -78,10 +78,16 @@ public class Environnement {
 		return (this.matrice_env[x][y]);
 	}
 	
+	public void setCellule(int x,int y) {
+		this.matrice_env[x][y]=1;;
+	}
+	
 	public int[][] getEnvironnement () {
 		
 		return this.matrice_env;
 	}
+	
+	
 	
 	public void afficherEnvironnement() {
 		for(int i = 0; i < matrice_env.length; i++){					
