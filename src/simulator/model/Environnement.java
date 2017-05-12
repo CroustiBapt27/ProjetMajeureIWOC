@@ -57,7 +57,6 @@ public class Environnement {
             		matrice_env[i][j]=1;
             	}
             	
-                System.out.print(matrice_env[i][j] + " ");
                 
             }
 		}
@@ -86,6 +85,13 @@ public class Environnement {
 		return this.matrice_env;
 	}
 	
+	public boolean isCoordIn(int x,int y) {
+		boolean isIn=true;
+		if(x<0||y<0||x>taille_x-1||y>taille_y-1) {
+			isIn=false;
+		}
+		return isIn;
+	}
 	
 	
 	public void afficherEnvironnement() {
