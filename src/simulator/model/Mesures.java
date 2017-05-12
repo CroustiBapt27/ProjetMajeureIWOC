@@ -1,25 +1,25 @@
 package simulator.model;
 
 public class Mesures {
-	public static int nbr_commande=0;
-	public static int nbr_obs_rencontre=0;
-	public static int nbr_obs_visible=0;
-	public static int distance=0;
+	private int nbr_commande=0;
+	private int nbr_obs_rencontre=0;
+	private int nbr_obs_visible=0;
+	private int distance=0;
 	
 	public int getNbr_commande(){
-		return Mesures.nbr_commande;
+		return this.nbr_commande;
 	}
 	
 	public int getMbr_obs_rencontre(){
-		return Mesures.nbr_obs_rencontre;
+		return this.nbr_obs_rencontre;
 	}
 	
 	public int getMbr_obs_visible(){
-		return Mesures.nbr_obs_visible;
+		return this.nbr_obs_visible;
 	}
 	
 	public int getDistance(){
-		return Mesures.nbr_obs_visible;
+		return this.nbr_obs_visible;
 	}
 	
 	public void majCommande(){
@@ -41,19 +41,19 @@ public class Mesures {
 	
 	
 	public void setNbr_Commande(int nbr_commande){
-		Mesures.nbr_commande=nbr_commande;
+		this.nbr_commande=nbr_commande;
 	}
 	
 	public void setNbr_obs_rencontre(int nbr_obs_rencontre) {
-		Mesures.nbr_obs_rencontre = nbr_obs_rencontre;
+		this.nbr_obs_rencontre = nbr_obs_rencontre;
 	}
 	
 	public void setNbr_obs_visible (int nbr_obs_visible){
-		Mesures.nbr_obs_visible = nbr_obs_visible;
+		this.nbr_obs_visible = nbr_obs_visible;
 	}
 	
 	public void setDistance(int distance){
-		Mesures.distance = distance;
+		this.distance = distance;
 	}
 	
 
