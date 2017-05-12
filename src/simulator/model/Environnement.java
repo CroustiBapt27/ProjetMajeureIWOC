@@ -69,7 +69,6 @@ public class Environnement {
             	//mise a 0 des bords
             		matrice_env[i][j]=0;
             		
-            		System.out.print(matrice_env[i][j] + " ");
             }
 		}
 	}

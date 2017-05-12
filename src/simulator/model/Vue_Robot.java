@@ -43,18 +43,30 @@ public class Vue_Robot {
 		
 		private Environnement majEnvironnement(int x_robot, int y_robot, Environnement env_robot,Orientation orientation) {
 			int [][] masque=orienter_masque(orientation);
-			for(int j = 0; j < masque.length; j++){					//remplissage de la grille
+			for(int j = 0; j < masque.length; j++){					
 	            for(int i = 0; i < masque[j].length; i++){ 
 	            	if(masque[i][j]==1) {
 	            		if(orientation==Orientation.HAUT) {
-	            			env_robot[x_robot-1][y_robot-2]=1;
+	            			env_robot.setCellule(x_robot+i-1, y_robot+j-2);
 	            		}
-	            		
+	            		if(orientation==Orientation.BAS) {
+	            			env_robot.setCellule(x_robot+i-1, y_robot+j-1);
+	            		}
+	            		if(orientation==Orientation.DROITE) {
+	            			env_robot.setCellule(x_robot+i-1, y_robot+j-1);
+	            		}
+	            		if(orientation==Orientation.GAUCHE) {
+	            			env_robot.setCellule(x_robot+i-2, y_robot+j-1);
+	            		}
+	            	}
 	            	
 	            }
-	            	
-	            }
-			
+			}
+			return env_robot;
+		}
+		public static void main(String[] args) {		//test (a mettre en commentaire)
+			Environnement grille= new Environnement(10,10); 
+			grille.afficherEnvironnement();	
 		}
 
 }
