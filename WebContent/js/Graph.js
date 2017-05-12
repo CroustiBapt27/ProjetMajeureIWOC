@@ -1,5 +1,4 @@
 
-
 $(function graph() {
     $(document).ready(function () {
         $('#container1').highcharts({

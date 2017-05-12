@@ -16,7 +16,7 @@
     		<!-- Loading Flat UI -->
     	<link href="dist/css/flat-ui.css" rel="stylesheet"></link>
     	<link href="docs/assets/css/demo.css" rel="stylesheet"></link>
-    	<link rel="shortcut icon" href="img/mario.ico"></link>
+    	<link rel="shortcut icon" href="img/pkm.ico"></link>
 	
 	<script src="lib/jquery-1.11.1.min.js"></script>
 	<script src="js/BoutonAction.js"></script>
@@ -25,9 +25,11 @@
 	<script src="js/ajax.js"></script>
 	<script src="js/jquery.cookie.js"></script>
 		<!-- highrcharts -->
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="code/highcharts.js"></script>
+	<script src="code/modules/exporting.js"></script>
+	<script src="js/script-graphiques.js"></script>
+		
 </head>
 
 <!----------  BODY  ---------->
@@ -61,7 +63,7 @@
 	
 
 	<!----------  CONTENU  ---------->
-	<div id="contenu">
+	<div id="contenu">	
 		<div id="main"> 
 		<!-- Parametres -->
 			 <div id="menu"> 
@@ -117,10 +119,17 @@
 		<div id="graphiques"> 
 			<div class="col-xs-3">
 			  	<h3 class="demo-panel-title">Data</h3>
-			  	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-			 </div> <!-- /checkboxes col-xs-3 -->
+			</div> <!-- /checkboxes col-xs-3 -->
+			
+			<div id="graph1" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
+			<br />
+			<div id="graph1" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
 		</div>
+	
+	
+		
 	</div>
+	
 	
 	<!----------  FOOTER  ---------->
 	<footer>

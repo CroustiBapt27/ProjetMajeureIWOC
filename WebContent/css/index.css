@@ -1,5 +1,13 @@
 @CHARSET "UTF-8";
 
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/lato/lato-black.eot');
+  src: url('../fonts/lato/lato-black.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-black.woff') format('woff'), url('../fonts/lato/lato-black.ttf') format('truetype'), url('../fonts/lato/lato-black.svg#latoblack') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
 .baniere {
 	position: relative;
 	margin: 0px 20px 0px 20px;
@@ -12,9 +20,11 @@ footer {
 }
 
 body {
+	font-family: "Lato";
 	position: relative;
 	display: flex;
 	flex-direction: column;
+
 }
 	
 
@@ -49,9 +59,9 @@ body {
 #graphiques {
 	background-color:#edeff1;
 	border-radius: 6px;
-	height: 200px;
 	margin-top: 30px;
 }
+
 
 .fleches-directionnels {	
 	margin-left:85px;
@@ -70,10 +80,6 @@ body {
   	display: flex;
   	justify-content: center;
 }
-
-
-
-
 
 
 
