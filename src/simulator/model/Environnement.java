@@ -2,11 +2,41 @@ package simulator.model;
 
 public class Environnement {
 	private int[][] matrice_env;
-	private int taille_x=10, taille_y=10;
-	private double pourcentage_obstacle=5;
+	private int taille_x, taille_y;
+	private double pourcentage_obstacle;
 	
 	public Environnement(int taille_x, int taille_y, double pourcentage_obstacle) {
+		this.taille_x=taille_x;
+		this.taille_y=taille_y;
+		this.pourcentage_obstacle=pourcentage_obstacle;
 		matrice_env=new int[taille_x][taille_y];	
+	}
+	
+	public int getTaille_x (){
+		return this.taille_x;
+	}
+	
+	public int getTaille_y (){
+		return this.taille_y;
+	}
+	
+	public double getPourcentage_obstacle(){
+		return this.pourcentage_obstacle;
+	}
+	
+	public void setTaille_x (int taille_x){
+		this.taille_x=taille_x;
+	}
+	
+	public void setTaille_y (int taille_y){
+		this.taille_y=taille_y;
+	}
+	
+	public void setPourcentage_obstacle(double pourcentage_obstacle){
+		this.pourcentage_obstacle=pourcentage_obstacle;
+	}
+	
+	public void geneEnvironnement (){
 		for(int i = 0; i < taille_x; i++){					//remplissage de la grille
             for(int j = 0; j < taille_y; j++){
             	if(i==0 || i==taille_x-1||j==0||j==taille_y-1) {	//mise a 0 des bords
@@ -22,15 +52,14 @@ public class Environnement {
                 //System.out.print(matrice_env[i][j] + " ");
                 
             }
-            //System.out.println();  
-        }
+		}
 	}
-	
 	public int getCellule(int x,int y) {
 		return (this.matrice_env[x][y]);
 	}
 	
 	public int[][] getEnvironnement () {
+		
 		return this.matrice_env;
 	}
 	
