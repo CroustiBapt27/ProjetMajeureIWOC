@@ -57,7 +57,7 @@ public class Environnement {
             		matrice_env[i][j]=1;
             	}
             	
-                //System.out.print(matrice_env[i][j] + " ");
+                System.out.print(matrice_env[i][j] + " ");
                 
             }
 		}
@@ -68,6 +68,8 @@ public class Environnement {
             for(int j = 0; j < taille_y; j++){
             	//mise a 0 des bords
             		matrice_env[i][j]=0;
+            		
+            		System.out.print(matrice_env[i][j] + " ");
             }
 		}
 	}
