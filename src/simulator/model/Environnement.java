@@ -5,11 +5,20 @@ public class Environnement {
 	private int taille_x, taille_y;
 	private double pourcentage_obstacle;
 	
-	public Environnement(int taille_x, int taille_y, double pourcentage_obstacle) {
+	public Environnement(int taille_x, int taille_y, double pourcentage_obstacle) { //contructeur pour les obstacles
 		this.taille_x=taille_x;
 		this.taille_y=taille_y;
 		this.pourcentage_obstacle=pourcentage_obstacle;
-		matrice_env=new int[taille_x][taille_y];	
+		matrice_env=new int[taille_x][taille_y];
+		geneEnvironnement();
+	}
+	
+	public Environnement(int taille_x, int taille_y) { //contructeur pour le robot
+		this.taille_x=taille_x;
+		this.taille_y=taille_y;
+		this.pourcentage_obstacle=pourcentage_obstacle;
+		matrice_env=new int[taille_x][taille_y];
+		geneEnvironnement_vide();
 	}
 	
 	public int getTaille_x (){
