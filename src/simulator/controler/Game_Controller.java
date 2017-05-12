@@ -20,7 +20,21 @@ public class Game_Controller {
 	}
 	
 	public void deplacement_robot(Deplacement arrow){
+		int [] tab_coord_temp;
+		tab_coord_temp = new int [2];
+		tab_coord_temp = robot_jeu.deplacement_ontab(arrow);
 		
+		if(tab_coord_temp[0] != 0 && tab_coord_temp[1] != 0){
+			int case_jeu;
+			case_jeu=environnement_jeu.getCellule(tab_coord_temp[0], tab_coord_temp[1]);
+			robot_jeu.deplacement_case(case_jeu, tab_coord_temp);
+		}
+		
+		//Dans tous les cas mise a jour de la vue
+		robot_jeu.majEnvi_robot();
+		
+		
+		//TODO maj compteur obstacle vu
 		
 		
 	}

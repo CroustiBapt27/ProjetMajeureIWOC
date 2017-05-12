@@ -1,8 +1,11 @@
 package simulator.model;
 
+import simulator.model.Vue_Robot;
+
 public class Robot {
 	private int x_robot;
 	private int y_robot;
+	
 	private Environnement envi_robot; //matrice 0 case non vu, 1 case vu, 2 case vu avec obstacle
 	private Orientation orient_robot;
 	private Mesures mesures_robot;
@@ -15,6 +18,59 @@ public class Robot {
 		this.mesures_robot = new Mesures();
 	}
 	
+	public int[] deplacement_ontab(Deplacement arrow){ //vérifie la sortie de case
+		int [] tab_coord_temp;
+		tab_coord_temp = new int [2];
+		tab_coord_temp[0]=0;
+		tab_coord_temp[1]=0;
+		
+		if(Deplacement.UP_ARROW.equals(arrow) && y_robot < envi_robot.getTaille_y()) {
+			this.orient_robot=Orientation.HAUT;
+			tab_coord_temp[0]=x_robot;
+			tab_coord_temp[1]=y_robot+1;
+		}
+		if(Deplacement.DOWN_ARROW.equals(arrow) && y_robot > 1) {
+			this.orient_robot=Orientation.BAS;
+			tab_coord_temp[0]=x_robot;
+			tab_coord_temp[1]=y_robot-1;
+		}
+		if(Deplacement.RIGHT_ARROW.equals(arrow) && x_robot < envi_robot.getTaille_x()) {
+			this.orient_robot=Orientation.DROITE;
+			tab_coord_temp[0]=x_robot+1;
+			tab_coord_temp[1]=y_robot;
+		}
+		if(Deplacement.LEFT_ARROW.equals(arrow) && x_robot > 1 ) {		
+			this.orient_robot=Orientation.GAUCHE;
+			tab_coord_temp[0]=x_robot-1;
+			tab_coord_temp[1]=y_robot;
+		}
+		
+		if(tab_coord_temp[0]!=0 && tab_coord_temp[1]!=0){
+			mesures_robot.majCommande();
+			
+		}
+		
+		return tab_coord_temp;
+	}
+	
+	public void deplacement_case(int case_jeu, int tab_coord[]){
+		if(case_jeu == 1){
+			x_robot = tab_coord[0];
+			y_robot = tab_coord[1];
+			mesures_robot.majDistance();
+		}
+		if(case_jeu != 1){
+			mesures_robot.majRencontre();
+		}
+	}
+	
+	
+	
+	
+	
+	public void majEnvi_robot(){
+		//a définir avec les fonctions crées dans vu robot
+	}
 	
 	//getter setter
 	public int getX_robot() {
@@ -58,32 +114,7 @@ public class Robot {
 	}
 	
 	
-	public boolean deplacement_ontab(Deplacement arrow){ //vérifie la sortie de case
-		boolean val_deplacement_ontab=false;
-		if(Deplacement.UP_ARROW.equals(arrow) && y_robot < envi_robot.getTaille_y()) {
-			this.orient_robot=Orientation.HAUT;
-			val_deplacement_ontab =true;
-		}
-		if(Deplacement.DOWN_ARROW.equals(arrow) && y_robot > 1) {
-			this.orient_robot=Orientation.BAS;
-			val_deplacement_ontab = true;
-		}
-		if(Deplacement.RIGHT_ARROW.equals(arrow) && x_robot < envi_robot.getTaille_x()) {
-			this.orient_robot=Orientation.DROITE;
-			val_deplacement_ontab = true;
-		}
-		if(Deplacement.LEFT_ARROW.equals(arrow) && x_robot > 1 ) {		
-			this.orient_robot=Orientation.GAUCHE;
-			val_deplacement_ontab=true;
-		}
-		
-		if(val_deplacement_ontab){
-			mesures_robot.majCommande();
-			
-		}
-		
-		return val_deplacement_ontab;
-	}
+	
 	
 	
 
