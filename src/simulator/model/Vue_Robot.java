@@ -2,7 +2,6 @@ package simulator.model;
 
 
 import simulator.model.Environnement;
-import simulator.model.Robot;
 import simulator.model.Orientation;
 
 public class Vue_Robot {
@@ -38,7 +37,7 @@ public class Vue_Robot {
 			return masque;
 		}
 		
-		private static Environnement majEnvironnement(int x_robot, int y_robot, Environnement env_robot,Orientation orientation) {
+		public static Environnement majEnvironnement(int x_robot, int y_robot, Environnement env_robot,Orientation orientation) {
 			int [][] masque=orienter_masque(orientation);
 			for(int j = 0; j < masque[0].length; j++){					
 	            for(int i = 0; i < masque.length; i++){ 
