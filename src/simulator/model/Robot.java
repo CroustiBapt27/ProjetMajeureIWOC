@@ -66,6 +66,10 @@ public class Robot {
 		}
 	}
 	
+	public void majMesures(int nbr_obstacle_visible, int nbr_obs_rencontre){
+		mesures_robot.setNbr_obs_visible(nbr_obstacle_visible);
+		mesures_robot.setNbr_obs_rencontre(nbr_obs_rencontre);
+	}
 	
 	
 	
@@ -86,6 +90,10 @@ public class Robot {
 
 	public Environnement getEnvi_robot() {
 		return envi_robot;
+	}
+	
+	public int[][] getMasque(){
+		return masque;
 	}
 
 	public Orientation getOrient_robot() {
