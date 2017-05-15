@@ -34,8 +34,13 @@ public class Game_Controller {
 		robot_jeu.majEnvi_robot(robot_jeu.getX_robot(),robot_jeu.getY_robot(),robot_jeu.getOrient_robot());
 		
 		
-		//TODO maj compteur obstacle vu
+		int nbr_obstacle_visible = Vue_Robot.majObstacle_visible(environnement_jeu, robot_jeu.getMasque(), robot_jeu.getX_robot(),
+				robot_jeu.getY_robot(), robot_jeu.getOrient_robot());
 		
+		int nbr_obstacle_rencontre = Vue_Robot.majObstacle_rencontre(environnement_jeu, robot_jeu.getEnvi_robot());
+		
+		//TODO maj compteur obstacle vu et visible
+		robot_jeu.majMesures(nbr_obstacle_visible, nbr_obstacle_rencontre);
 		
 	}
 	
@@ -57,7 +62,6 @@ public class Game_Controller {
 	public Environnement getEnvironnement_robot(){
 		return robot_jeu.getEnvi_robot();
 	}
-	
 
 
 
@@ -120,8 +124,6 @@ public class Game_Controller {
 	public void setRobot_jeu(Robot robot_jeu) {
 		this.robot_jeu = robot_jeu;
 	}
-	
-	
 
 	public void setEnvironnement_jeu(Environnement environnement_jeu) {
 		this.environnement_jeu = environnement_jeu;
