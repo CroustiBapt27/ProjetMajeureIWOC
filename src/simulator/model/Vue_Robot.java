@@ -70,11 +70,56 @@ public class Vue_Robot {
 		}
 		
 		public static int majObstacle_rencontre(Environnement env_jeu, Environnement env_robot){
-			return 0;
+			int nb_obstacle=0;
+			for(int i = 0; i < env_jeu.getTaille_x(); i++){					
+	            for(int j = 0; j < env_jeu.getTaille_y(); j++){
+	            	if(env_jeu.getCellule(i, j)==3) {
+	            		if(env_robot.getCellule(i,j)==1)
+	            				nb_obstacle++;	
+	            	}
+	            }
+			}
+			return nb_obstacle;
 		}
 		
 		public static int majObstacle_visible(Environnement env_jeu, int[][] masque, int x_robot, int y_robot, Orientation orientation_robot){
-			return 0;
+			int obstacle_visible=0;
+			for(int j = 0; j < masque[0].length; j++){					
+	            for(int i = 0; i < masque.length; i++){ 
+	            	if(masque[i][j]==1) {
+	            		if(orientation_robot==Orientation.HAUT) {
+	            			if(env_jeu.isCoordIn(x_robot+i-2, y_robot+j-1)) {
+	            				if(env_jeu.getCellule(x_robot+i-2, y_robot+j-1)==3) {
+	            					obstacle_visible++;
+	            				}
+	            			}
+	            		}
+	            		if(orientation_robot==Orientation.BAS) {
+	            			if(env_jeu.isCoordIn(x_robot+i-1, y_robot+j-1)) {
+	            				if(env_jeu.getCellule(x_robot+i-1, y_robot+j-1)==3) {
+	            					obstacle_visible++;
+	            				}
+	            			}
+	            		}
+	            		if(orientation_robot==Orientation.DROITE) {
+	            			if(env_jeu.isCoordIn(x_robot+i-1, y_robot+j-1)) {
+	            				if(env_jeu.getCellule(x_robot+i-1, y_robot+j-1)==3) {
+	            					obstacle_visible++;
+	            				}
+	            			}
+	            		}
+	            		if(orientation_robot==Orientation.GAUCHE) {
+	            			if(env_jeu.isCoordIn(x_robot+i-1, y_robot+j-2)) {
+	            				if(env_jeu.getCellule(x_robot+i-1, y_robot+j-2)==3) {
+	            					obstacle_visible++;
+	            				}
+	            			}
+	            		}
+	            	}
+	            	
+	            }
+			}
+			return obstacle_visible;
 		}
 		
 		
