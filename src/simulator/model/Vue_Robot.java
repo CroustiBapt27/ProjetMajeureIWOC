@@ -19,7 +19,7 @@ public class Vue_Robot {
 		this.masque=masque;
 		
 	}*/
-		private static int[][] orienter_masque(Orientation orientation) {
+		public static int[][] orienter_masque(Orientation orientation) {
 			int masque[][]={
 				    { 0, 1, 0} , // tableau [0] de int
 				    { 1, 1, 1}, // tableau [1] de int
