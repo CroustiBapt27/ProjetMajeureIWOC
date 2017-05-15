@@ -9,6 +9,7 @@ public class Robot {
 	private Environnement envi_robot; //matrice 0 case non vu, 1 case vu
 	private Orientation orient_robot;
 	private Mesures mesures_robot;
+	private int[][]masque;
 
 	
 	public Robot(int x_robot,int y_robot, Orientation orient_robot, int x_matrice, int y_matrice){
@@ -115,7 +116,9 @@ public class Robot {
 		this.mesures_robot = mesures_robot;
 	}
 	
-	
+	public void majMasque() {
+		this.masque=Vue_Robot.orienter_masque(this.orient_robot);
+	}
 	
 	
 	
