@@ -1,24 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+<!DOCTYPE html>
+<html lang="en">
 
-<head>
+<!-------------------  HEAD  ------------------->
+ <head>
+    <meta charset="utf-8">
 	<title>Administration</title>
 
-   	<!-- Loading Bootstrap -->
-    <link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
-
-    <!-- Loading Flat UI -->
-    <link href="dist/css/flat-ui.css" rel="stylesheet"></link>
-    <link href="docs/assets/css/demo.css" rel="stylesheet"></link>
-
-    <link rel="shortcut icon" href="img/pkm.ico"></link>
-
-	<!-- CSS perso -->
+	<!---- Loading Bootstrap ---->
+    		<link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+    	<!---- Loading Flat UI ---->
+	    	<link href="dist/css/flat-ui.css" rel="stylesheet"></link>
+	    	<link href="docs/assets/css/demo.css" rel="stylesheet"></link>
+	    	<link rel="shortcut icon" href="img/pkm.ico"></link>
+	    	
+	    	    	<!-- CSS perso -->
 	<link href="css/admin.css" rel="stylesheet"></link>
+	<link href="css/canvas.css" rel="stylesheet"></link>
+	
+	
+	<!---- javascript ---->	
+		<script src="lib/jquery-1.11.1.min.js"></script>
+		<script src="js/BoutonAction.js"></script>
+		<script src="js/Graph.js"></script>
+		<script src="js/Canvas.js"></script>
+		<script src="js/ajax.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+	<!---- highrcharts ---->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="code/highcharts.js"></script>
+		<script src="code/modules/exporting.js"></script>
+		<script src="js/script-graphiques.js"></script>
+		
 </head>
 
 <body>
@@ -52,10 +64,10 @@
 		<div class="cadre-admin" align="center">
 			<paragraph>Robot state : <quote>running ...</quote></paragraph>
 			<div class="boutons start">
-				<a href="#fakelink" class="btn-lg btn-primary fui-play"> Start</a>
+				<a href="#" id="ButtonStart" class="btn-lg btn-primary fui-play"> Start</a>
 			</div>
 		  	<div class="boutons stop">
-		 	 	<a href="#fakelink" class="btn-lg btn-danger fui-pause"> Stop</a>
+		 	 	<a href="#" id="ButtonStop" class="btn-lg btn-danger fui-pause"> Stop</a>
 		  	</div>
 		</div>	
 	</div>
@@ -77,9 +89,6 @@
     <script src="dist/js/flat-ui.min.js"></script>
     <script src="docs/assets/js/application.js"></script>
 
-    <script>
-      videojs.options.flash.swf = "dist/js/vendors/video-js.swf"
-    </script>
 
 </body>
 </html>

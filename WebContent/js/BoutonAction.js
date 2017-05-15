@@ -91,6 +91,25 @@ $(document).ready(function(){
 	  		    alert("Get Done received data: " + data + "\nStatus: " + status);
 	  	});    
 	});
+	  
+	  
+	// ____________ START ____________
+		$("#ButtonStart").click(function(){
+			$.post("rest/cmd/START",
+					{},
+					function(data,status){
+						alert("Post Done received data: " + data + "\nStatus: " + status);
+					});    
+		});
+		
+		// ____________ STOP ____________
+		$("#ButtonStop").click(function(){
+			$.post("rest/cmd/STOP",
+					{},
+					function(data,status){
+						alert("Post Done received data: " + data + "\nStatus: " + status);
+					});    
+		});
 });
 
 

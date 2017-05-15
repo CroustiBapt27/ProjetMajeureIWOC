@@ -65,7 +65,7 @@ $(function graph() {
                 enabled: false
             },
             series: [{
-                name: 'Nombre de Commandesa',
+                name: 'Nombre de Commandes',
                 data: (function () {
                     // generate an array of random data
                     var data = [],
@@ -244,6 +244,7 @@ $(function graph() {
                 }())
             }]
         });
+		
 		$('#container4').highcharts({
             chart: {
                 type: 'spline',

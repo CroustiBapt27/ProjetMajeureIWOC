@@ -11,11 +11,16 @@ import javax.ws.rs.core.MediaType;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 @Path("/cmd")
 public class RobotControlService {
+	
 	private final static String ROBOT_SIMULATOR_LABEL="robot_simulator";
+	
+	private boolean marche=true; // administrateur ?
 	
 	//Inject servlet context (needed to get general context, application memory space, session memory space ...)
 	@Context
@@ -63,13 +68,25 @@ public class RobotControlService {
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("CHECK4")
 		public String autoMapping() {
-			return "autoMapping Done";
+			return "auto-mapping Done";
 		}
 		
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("UP")
-		public String goUp() {
+		public String goUp(String jsonData) {
+			
+			if(this.marche==true){ // Robot en marche ?
+				JSONParser parser=new JSONParser();
+				JSONObject data=null;
+				try {
+					data=(JSONObject)parser.parse(jsonData);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				String etat="KO";
+			}
+			
 			return "UP Done";
 		}
 		
@@ -92,6 +109,20 @@ public class RobotControlService {
 		@Path("RIGHT")
 		public String goRight() {
 			return "RIGHT Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("START")
+		public String startRobot() {
+			return "START Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("STOP")
+		public String stopRobot() {
+			return "STOP Done";
 		}
 		
 		@GET
