@@ -24,8 +24,11 @@ public class Test_Robot {
 		
 		tab_coord_temp=robot_contru.deplacement_ontab(Deplacement.DOWN_ARROW);
 		
-		if(tab_coord_temp[0] != 0)
-			assertTrue(true);
+		if(tab_coord_temp[0] == 0)
+			fail("Mauvais tab");
+		
+		assertTrue(true);
+		
 	}
 	
 	@Test
@@ -38,8 +41,16 @@ public class Test_Robot {
 		
 		tab_coord_temp=robot_contru.deplacement_ontab(Deplacement.DOWN_ARROW);
 		
-		if(tab_coord_temp[0] == 0)
-			assertTrue(true);
+		System.out.println(tab_coord_temp[0]+" "+tab_coord_temp[1]+"\n");
+		
+		if(tab_coord_temp[0] != 0){
+			
+			fail("Mauvais tab");
+			
+		}
+		
+		assertTrue(true);
+			
 	}
 	
 	@Test
@@ -53,11 +64,17 @@ public class Test_Robot {
 		
 		tab_coord_temp=robot_contru.deplacement_ontab(Deplacement.DOWN_ARROW);
 		
-		if(tab_coord_temp[0] != 0){
-			robot_contru.setX_robot(tab_coord_temp[0]);
+		if(tab_coord_temp[1] != 0){
+			robot_contru.setY_robot(tab_coord_temp[1]);
 		}
-		if(robot_contru.getX_robot() != 1)
-			assertTrue(true);
+		System.out.println(tab_coord_temp[0]+" "+tab_coord_temp[1]+"\n");
+		if(robot_contru.getY_robot() == 1){
+			fail("Mauvais y");
+		}
+			
+		
+		assertTrue(true);
+		
 	}
 	
 	@Test
@@ -71,11 +88,17 @@ public class Test_Robot {
 		
 		tab_coord_temp=robot_contru.deplacement_ontab(Deplacement.DOWN_ARROW);
 		
-		if(tab_coord_temp[0] != 0){
-			robot_contru.setX_robot(tab_coord_temp[0]);
+		System.out.println(tab_coord_temp[0]+" "+tab_coord_temp[1]+"\n");
+		if(tab_coord_temp[1] != 0){
+			robot_contru.setY_robot(tab_coord_temp[1]);
 		}
-		if(robot_contru.getX_robot() == 1)
-			assertTrue(true);
+		if(robot_contru.getY_robot() != 5){
+			fail("Mauvais y");
+		}
+			
+		assertTrue(true);
+		
+		
 	}
 
 }

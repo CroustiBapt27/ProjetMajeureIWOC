@@ -4,12 +4,12 @@ import simulator.model.*;
 
 public class Game_Controller {
 	
-	private int x_depart=1;
-	private int y_depart=1;
+	private int x_depart=2;
+	private int y_depart=2;
 	private int x_matrice=10;
 	private int y_matrice=10;
 	private double proba=0.5;
-	private Orientation orientation_depart;
+	private Orientation orientation_depart=Orientation.BAS;
 	
 	private Robot robot_jeu;
 	private Environnement environnement_jeu;
@@ -17,6 +17,7 @@ public class Game_Controller {
 	public Game_Controller() {
 		this.robot_jeu = new Robot(x_depart,y_depart,orientation_depart,x_matrice,y_matrice);
 		this.environnement_jeu = new Environnement(x_matrice,y_matrice,proba);
+		this.robot_jeu.majEnvi_robot(robot_jeu.getX_robot(),robot_jeu.getY_robot(),robot_jeu.getOrient_robot());
 	}
 	
 	public void deplacement_robot(Deplacement arrow){
@@ -27,20 +28,20 @@ public class Game_Controller {
 		if(tab_coord_temp[0] != 0 && tab_coord_temp[1] != 0){
 			int case_jeu;
 			case_jeu=environnement_jeu.getCellule(tab_coord_temp[0], tab_coord_temp[1]);
-			robot_jeu.deplacement_case(case_jeu, tab_coord_temp);
+			this.robot_jeu.deplacement_case(case_jeu, tab_coord_temp);
 		}
 		
 		//Dans tous les cas mise a jour de la vue
-		robot_jeu.majEnvi_robot(robot_jeu.getX_robot(),robot_jeu.getY_robot(),robot_jeu.getOrient_robot());
+		this.robot_jeu.majEnvi_robot(robot_jeu.getX_robot(),robot_jeu.getY_robot(),robot_jeu.getOrient_robot());
 		
 		
-		int nbr_obstacle_visible = Vue_Robot.majObstacle_visible(environnement_jeu, robot_jeu.getMasque(), robot_jeu.getX_robot(),
-				robot_jeu.getY_robot(), robot_jeu.getOrient_robot());
+		//int nbr_obstacle_visible = Vue_Robot.majObstacle_visible(environnement_jeu, robot_jeu.getMasque(), robot_jeu.getX_robot(),
+				//robot_jeu.getY_robot(), robot_jeu.getOrient_robot());
 		
 		int nbr_obstacle_rencontre = Vue_Robot.majObstacle_rencontre(environnement_jeu, robot_jeu.getEnvi_robot());
 		
 		//TODO maj compteur obstacle vu et visible
-		robot_jeu.majMesures(nbr_obstacle_visible, nbr_obstacle_rencontre);
+		//this.robot_jeu.majMesures(nbr_obstacle_visible, nbr_obstacle_rencontre);
 		
 	}
 	
@@ -49,18 +50,18 @@ public class Game_Controller {
 
 	//Une méthode permettant de retourner ce que perçoit le capteur de vision du robot
 	public void majMasque_robot(){
-		robot_jeu.majMasque();
+		this.robot_jeu.majMasque();
 		}
 	
 	
 	//Une méthode permettant de récupérer l’environnement utilisé Env.
 	public Environnement getEnvironnement_jeu() {
-		return environnement_jeu;
+		return this.environnement_jeu;
 	}
 	
 	//Une méthode permettant de récupérer l’environnement perçu par le Robot
 	public Environnement getEnvironnement_robot(){
-		return robot_jeu.getEnvi_robot();
+		return this.robot_jeu.getEnvi_robot();
 	}
 
 

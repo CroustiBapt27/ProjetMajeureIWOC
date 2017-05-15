@@ -56,7 +56,7 @@ public class Mesures {
 		this.distance = distance;
 	}
 	
-	public void afficherMEsures() {
+	public void afficherMesures() {
             System.out.print("distance="+distance+ " ");
             System.out.print("nbr_commande="+nbr_commande+ " ");
             System.out.print("nbr_obs_rencontre="+nbr_obs_rencontre+ " ");

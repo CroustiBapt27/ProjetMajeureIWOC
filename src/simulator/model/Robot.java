@@ -26,23 +26,23 @@ public class Robot {
 		tab_coord_temp[0]=0;
 		tab_coord_temp[1]=0;
 		
-		if(Deplacement.UP_ARROW.equals(arrow) && y_robot < envi_robot.getTaille_y()) {
-			this.orient_robot=Orientation.HAUT;
-			tab_coord_temp[0]=x_robot;
-			tab_coord_temp[1]=y_robot+1;
-		}
-		if(Deplacement.DOWN_ARROW.equals(arrow) && y_robot > 1) {
-			this.orient_robot=Orientation.BAS;
+		if(Deplacement.LEFT_ARROW.equals(arrow) && y_robot >1 ) {
+			this.orient_robot=Orientation.GAUCHE;
 			tab_coord_temp[0]=x_robot;
 			tab_coord_temp[1]=y_robot-1;
 		}
-		if(Deplacement.RIGHT_ARROW.equals(arrow) && x_robot < envi_robot.getTaille_x()) {
+		if(Deplacement.RIGHT_ARROW.equals(arrow) && y_robot < envi_robot.getTaille_y()) {
 			this.orient_robot=Orientation.DROITE;
+			tab_coord_temp[0]=x_robot;
+			tab_coord_temp[1]=y_robot+1;
+		}
+		if(Deplacement.DOWN_ARROW.equals(arrow) && x_robot >1) {
+			this.orient_robot=Orientation.BAS;
 			tab_coord_temp[0]=x_robot+1;
 			tab_coord_temp[1]=y_robot;
 		}
-		if(Deplacement.LEFT_ARROW.equals(arrow) && x_robot > 1 ) {		
-			this.orient_robot=Orientation.GAUCHE;
+		if(Deplacement.UP_ARROW.equals(arrow) && x_robot < envi_robot.getTaille_x() ) {		
+			this.orient_robot=Orientation.HAUT;
 			tab_coord_temp[0]=x_robot-1;
 			tab_coord_temp[1]=y_robot;
 		}
