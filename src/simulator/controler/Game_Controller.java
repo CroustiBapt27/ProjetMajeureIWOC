@@ -4,13 +4,12 @@ import simulator.model.*;
 
 public class Game_Controller {
 	
-	private int x_depart=2;
-	private int y_depart=2;
+	private int x_depart=1;
+	private int y_depart=1;
 	private int x_matrice=10;
 	private int y_matrice=10;
 	private double proba=0.5;
-	private Orientation orientation_depart=Orientation.BAS;
-	
+	private Orientation orientation_depart=Orientation.HAUT;
 	private Robot robot_jeu;
 	private Environnement environnement_jeu;
 	
@@ -32,13 +31,13 @@ public class Game_Controller {
 		}
 		
 		//Dans tous les cas mise a jour de la vue
-		this.robot_jeu.majEnvi_robot(robot_jeu.getX_robot(),robot_jeu.getY_robot(),robot_jeu.getOrient_robot());
+		this.robot_jeu.majEnvi_robot(this.robot_jeu.getX_robot(),this.robot_jeu.getY_robot(),this.robot_jeu.getOrient_robot());
 		
 		
-		//int nbr_obstacle_visible = Vue_Robot.majObstacle_visible(environnement_jeu, robot_jeu.getMasque(), robot_jeu.getX_robot(),
-				//robot_jeu.getY_robot(), robot_jeu.getOrient_robot());
+		int nbr_obstacle_visible = Vue_Robot.majObstacle_visible(this.environnement_jeu, this.robot_jeu.getOrient_robot(), this.robot_jeu.getX_robot(),
+				this.robot_jeu.getY_robot(), this.robot_jeu.getOrient_robot());
 		
-		int nbr_obstacle_rencontre = Vue_Robot.majObstacle_rencontre(environnement_jeu, robot_jeu.getEnvi_robot());
+		int nbr_obstacle_rencontre = Vue_Robot.majObstacle_rencontre(this.environnement_jeu, this.robot_jeu.getEnvi_robot());
 		
 		//TODO maj compteur obstacle vu et visible
 		//this.robot_jeu.majMesures(nbr_obstacle_visible, nbr_obstacle_rencontre);

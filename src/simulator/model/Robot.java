@@ -8,7 +8,7 @@ public class Robot {
 	
 	private Environnement envi_robot; //matrice 0 case non vu, 1 case vu
 	private Orientation orient_robot;
-	public Mesures mesures_robot;
+	private Mesures mesures_robot;
 	private int[][]masque;
 
 	
