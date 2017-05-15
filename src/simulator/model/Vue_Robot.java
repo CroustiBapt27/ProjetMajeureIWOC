@@ -68,6 +68,16 @@ public class Vue_Robot {
 			}
 			return env_robot;
 		}
+		
+		public static int majObstacle_rencontre(Environnement env_jeu, Environnement env_robot){
+			return 0;
+		}
+		
+		public static int majObstacle_visible(Environnement env_jeu, int[][] masque, int x_robot, int y_robot, Orientation orientation_robot){
+			return 0;
+		}
+		
+		
 		/*public static void main(String[] args) {		//test (a mettre en commentaire)
 			Environnement grille= new Environnement(10,10); 
 				
