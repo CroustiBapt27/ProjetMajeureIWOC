@@ -31,7 +31,7 @@ public class Game_Controller {
 		}
 		
 		//Dans tous les cas mise a jour de la vue
-		robot_jeu.majEnvi_robot();
+		robot_jeu.majEnvi_robot(robot_jeu.getX_robot(),robot_jeu.getY_robot(),robot_jeu.getOrient_robot());
 		
 		
 		//TODO maj compteur obstacle vu
@@ -42,6 +42,21 @@ public class Game_Controller {
 
 
 
+	//Une méthode permettant de retourner ce que perçoit le capteur de vision du robot
+	public void majMasque_robot(){
+		robot_jeu.majMasque();
+		}
+	
+	
+	//Une méthode permettant de récupérer l’environnement utilisé Env.
+	public Environnement getEnvironnement_jeu() {
+		return environnement_jeu;
+	}
+	
+	//Une méthode permettant de récupérer l’environnement perçu par le Robot
+	public Environnement getEnvironnement_robot(){
+		return robot_jeu.getEnvi_robot();
+	}
 	
 
 
@@ -106,9 +121,7 @@ public class Game_Controller {
 		this.robot_jeu = robot_jeu;
 	}
 	
-	public Environnement getEnvironnement_jeu() {
-		return environnement_jeu;
-	}
+	
 
 	public void setEnvironnement_jeu(Environnement environnement_jeu) {
 		this.environnement_jeu = environnement_jeu;

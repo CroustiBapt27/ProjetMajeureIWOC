@@ -53,7 +53,9 @@ public class Mesures {
 		for(int i = 0; i < envi_robot.getTaille_x(); i++){					
             for(int j = 0; j < envi_robot.getTaille_y(); j++){
             	if(envi_robot.getCellule(i, j)==3) {
-            		nb_obstacle++;
+            		if(envi_robot.getCellule==
+            				nb_obstacle++;
+            				
             	}
             }
 		}
