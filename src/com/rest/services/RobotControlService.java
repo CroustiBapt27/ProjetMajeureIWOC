@@ -14,13 +14,20 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import simulator.controler.Game_Controller;
+import simulator.model.Deplacement;
+
+// Import des classes de simulator
+
 
 @Path("/cmd")
 public class RobotControlService {
 	
 	private final static String ROBOT_SIMULATOR_LABEL="robot_simulator";
-	
-	private boolean marche=true; // administrateur ?
+	private final static String MARCHE_LABEL="marche";
+	private static volatile RobotControlService instance = null;
+	Game_Controller jeu = new Game_Controller();
+	private boolean marche=false; // etat du robot
 	
 	//Inject servlet context (needed to get general context, application memory space, session memory space ...)
 	@Context
@@ -32,15 +39,31 @@ public class RobotControlService {
 			checkRobot();
 		}
 
+		
 		private void checkRobot() {
 			Object obj=context.getAttribute(ROBOT_SIMULATOR_LABEL);
 			if(obj==null){
-				
-				//TODO
+
 			}else{
-				//TODO
+				
 			}
 			
+		}
+		
+		public final static RobotControlService getInstance() {
+			// Le "Double-Checked Singleton"/"Singleton doublement vérifié" permet
+			// d'éviter un appel coûteux à synchronized,
+			// une fois que l'instanciation est faite.
+			if (RobotControlService.instance == null) {
+				// Le mot-clé synchronized sur ce bloc empêche toute instanciation
+				// multiple même par différents "threads".
+				synchronized (RobotControlService.class) {
+					if (RobotControlService.instance == null) {
+						RobotControlService.instance = new RobotControlService();
+					}
+				}
+			}
+			return RobotControlService.instance;
 		}
 		
 		@POST
@@ -75,7 +98,7 @@ public class RobotControlService {
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("UP")
 		public String goUp(String jsonData) {
-			
+			String etat="KO";
 			if(this.marche==true){ // Robot en marche ?
 				JSONParser parser=new JSONParser();
 				JSONObject data=null;
@@ -84,37 +107,97 @@ public class RobotControlService {
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-				String etat="KO";
+				if(true) { // Bien connecté ?
+					jeu.deplacement_robot(Deplacement.UP_ARROW);
+					etat="OK";
+				}
+				JSONObject objAuth = new JSONObject();
+				objAuth.put("UP ",etat);
+				return objAuth.toJSONString();
 			}
 			
-			return "UP Done";
+			return etat;
 		}
 		
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("DOWN")
-		public String goDown() {
-			return "DOWN Done";
+		public String goDown(String jsonData) {
+			String etat="KO";
+			if(this.marche==true){ // Robot en marche ?
+				JSONParser parser=new JSONParser();
+				JSONObject data=null;
+				try {
+					data=(JSONObject)parser.parse(jsonData);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				if(true) { // Bien connecté ?
+					jeu.deplacement_robot(Deplacement.DOWN_ARROW);
+					etat="OK";
+				}
+				JSONObject objAuth = new JSONObject();
+				objAuth.put("DOWN ",etat);
+				return objAuth.toJSONString();
+			}
+			
+			return etat;
 		}
 		
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("LEFT")
-		public String goLeft() {
-			return "LEFT Done";
+		public String goLeft(String jsonData) {
+			String etat="KO";
+			if(this.marche==true){ // Robot en marche ?
+				JSONParser parser=new JSONParser();
+				JSONObject data=null;
+				try {
+					data=(JSONObject)parser.parse(jsonData);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				if(true) { // Bien connecté ?
+					jeu.deplacement_robot(Deplacement.LEFT_ARROW);
+					etat="OK";
+				}
+				JSONObject objAuth = new JSONObject();
+				objAuth.put("LEFT ",etat);
+				return objAuth.toJSONString();
+			}	
+			return etat;
 		}
 		
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("RIGHT")
-		public String goRight() {
-			return "RIGHT Done";
+		public String goRight(String jsonData) {
+			String etat="KO";
+			if(this.marche==true){ // Robot en marche ?
+				JSONParser parser=new JSONParser();
+				JSONObject data=null;
+				try {
+					data=(JSONObject)parser.parse(jsonData);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				if(true) { // Bien connecté ?
+					jeu.deplacement_robot(Deplacement.RIGHT_ARROW);
+					etat="OK";
+				}
+				JSONObject objAuth = new JSONObject();
+				objAuth.put("RIGHT ",etat);
+				return objAuth.toJSONString();
+			}		
+			return etat;
 		}
 		
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("START")
 		public String startRobot() {
+			this.marche=true;
+			context.setAttribute(MARCHE_LABEL, marche);
 			return "START Done";
 		}
 		
@@ -122,6 +205,8 @@ public class RobotControlService {
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("STOP")
 		public String stopRobot() {
+			this.marche=false;
+			context.setAttribute(MARCHE_LABEL, marche);
 			return "STOP Done";
 		}
 		
