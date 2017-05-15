@@ -42,6 +42,21 @@ public class Game_Controller {
 
 
 
+	//Une méthode permettant de retourner ce que perçoit le capteur de vision du robot
+	public int[][] majMasque_robot(){
+		return robot_jeu.majMasque(robot_jeu.getOrient_robot());
+	}
+	
+	
+	//Une méthode permettant de récupérer l’environnement utilisé Env.
+	public Environnement getEnvironnement_jeu() {
+		return environnement_jeu;
+	}
+	
+	//Une méthode permettant de récupérer l’environnement perçu par le Robot
+	public Environnement getEnvironnement_robot(){
+		return robot_jeu.getEnvi_robot();
+	}
 	
 
 
@@ -106,9 +121,7 @@ public class Game_Controller {
 		this.robot_jeu = robot_jeu;
 	}
 	
-	public Environnement getEnvironnement_jeu() {
-		return environnement_jeu;
-	}
+	
 
 	public void setEnvironnement_jeu(Environnement environnement_jeu) {
 		this.environnement_jeu = environnement_jeu;
