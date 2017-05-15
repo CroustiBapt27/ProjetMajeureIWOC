@@ -56,6 +56,9 @@ public class Environnement {
             	else{												//mise a 1 -> vide
             		matrice_env[i][j]=1;
             	}
+            	if(i==1 && j == 1){
+            		matrice_env[i][j]=1; //mise a vide la case a de départ du robot
+            	}
             	
                 
             }

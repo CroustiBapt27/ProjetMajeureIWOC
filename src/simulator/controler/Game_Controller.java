@@ -68,9 +68,6 @@ public class Game_Controller {
 	//Getters
 	//Setters
 	//Utiles?
-	public void getMap_jeu(Environnement environnement_jeu){
-		environnement_jeu.afficherEnvironnement();
-	}
 	
 	public int getX_depart() {
 		return x_depart;
