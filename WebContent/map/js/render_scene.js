@@ -2,7 +2,7 @@ $(function() {
   var c = $("canvas")[0].getContext("2d");
 
   var scene = {
-    layers: [],
+    layers: [], 
     renderLayer: function(layer) {
       // data: [array of tiles, 1-based, position of sprite from top-left]
       // height: integer, height in number of sprites
