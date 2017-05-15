@@ -44,22 +44,12 @@ public class Mesures {
 		this.nbr_commande=nbr_commande;
 	}
 	
-	public void setNbr_obs_rencontre(int nbr_obs_rencontre) {
-		this.nbr_obs_rencontre = nbr_obs_rencontre;
+	public void setNbr_obs_rencontre(int nbr_obstacle_rencontre) {
+		this.nbr_obs_rencontre = nbr_obstacle_rencontre;
 	}
 	
-	public void setNbr_obs_visible (Environnement envi_robot){
-		int nb_obstacle=0;
-		for(int i = 0; i < envi_robot.getTaille_x(); i++){					
-            for(int j = 0; j < envi_robot.getTaille_y(); j++){
-            	if(envi_robot.getCellule(i, j)==3) {
-            		if(envi_robot.getCellule==
-            				nb_obstacle++;
-            				
-            	}
-            }
-		}
-		this.nbr_obs_visible=nb_obstacle;
+	public void setNbr_obs_visible (int nbr_obstacle_visible){
+		this.nbr_obs_visible=nbr_obstacle_visible;
 	}
 	
 	public void setDistance(int distance){
