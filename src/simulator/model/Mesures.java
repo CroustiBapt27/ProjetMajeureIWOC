@@ -48,8 +48,16 @@ public class Mesures {
 		this.nbr_obs_rencontre = nbr_obs_rencontre;
 	}
 	
-	public void setNbr_obs_visible (int nbr_obs_visible){
-		this.nbr_obs_visible = nbr_obs_visible;
+	public void setNbr_obs_visible (Environnement envi_robot){
+		int nb_obstacle=0;
+		for(int i = 0; i < envi_robot.getTaille_x(); i++){					
+            for(int j = 0; j < envi_robot.getTaille_y(); j++){
+            	if(envi_robot.getCellule(i, j)==3) {
+            		nb_obstacle++;
+            	}
+            }
+		}
+		this.nbr_obs_visible=nb_obstacle;
 	}
 	
 	public void setDistance(int distance){
