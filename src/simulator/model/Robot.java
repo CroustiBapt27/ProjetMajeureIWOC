@@ -6,9 +6,10 @@ public class Robot {
 	private int x_robot;
 	private int y_robot;
 	
-	private Environnement envi_robot; //matrice 0 case non vu, 1 case vu, 2 case vu avec obstacle
+	private Environnement envi_robot; //matrice 0 case non vu, 1 case vu
 	private Orientation orient_robot;
 	private Mesures mesures_robot;
+
 	
 	public Robot(int x_robot,int y_robot, Orientation orient_robot, int x_matrice, int y_matrice){
 		this.x_robot=x_robot;
@@ -68,8 +69,9 @@ public class Robot {
 	
 	
 	
-	public void majEnvi_robot(){
-		//a définir avec les fonctions crées dans vu robot
+	public void majEnvi_robot(int x_robot, int y_robot,Orientation orientation){
+		this.envi_robot=Vue_Robot.majEnvironnement(x_robot,y_robot,this.envi_robot,orientation);
+		
 	}
 	
 	//getter setter
