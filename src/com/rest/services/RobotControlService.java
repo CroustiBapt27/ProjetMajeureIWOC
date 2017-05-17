@@ -23,11 +23,11 @@ public class RobotControlService {
 	
 	private final static String ROBOT_SIMULATOR_LABEL="robot_simulator";
 	private final static String MARCHE_LABEL="marche";
-	
-	private static volatile RobotControlService instance = null;
-	
+		
 	Game_Controller jeu ;
+	
 	private boolean marche=true; // etat du robot
+	private boolean login=true; // connexion ?
 	
 	//Inject servlet context (needed to get general context, application memory space, session memory space ...)
 	@Context
@@ -49,22 +49,12 @@ public class RobotControlService {
 			}
 			
 		}
-		
-		public final static RobotControlService getInstance() {
-			// Le "Double-Checked Singleton"/"Singleton doublement vérifié" permet
-			// d'éviter un appel coûteux à synchronized,
-			// une fois que l'instanciation est faite.
-			if (RobotControlService.instance == null) {
-				// Le mot-clé synchronized sur ce bloc empêche toute instanciation
-				// multiple même par différents "threads".
-				synchronized (RobotControlService.class) {
-					if (RobotControlService.instance == null) {
-						Game_Controller jeu = new Game_Controller();
-						RobotControlService.instance = new RobotControlService();
-					}
-				}
-			}
-			return RobotControlService.instance;
+
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("START")
+		private void createGame() {
+			jeu=new Game_Controller();
 		}
 		
 		@POST
@@ -101,13 +91,7 @@ public class RobotControlService {
 		public String goUp(String jsonData) {
 			String etat="KO";
 			if(this.marche==true){ // Robot en marche ?
-				JSONParser parser=new JSONParser();
-				JSONObject data=null;
-				try {
-					data=(JSONObject)parser.parse(jsonData);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+	
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.UP_ARROW);
 					jeu.getEnvironnement_jeu().afficherEnvironnement();
@@ -116,6 +100,7 @@ public class RobotControlService {
 					jeu.getEnvironnement_robot().afficherEnvironnement();
 					etat="OK";
 				}
+				
 				JSONObject objAuth = new JSONObject();
 				objAuth.put("UP ",etat);
 				return objAuth.toJSONString();
