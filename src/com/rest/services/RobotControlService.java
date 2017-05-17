@@ -17,17 +17,16 @@ import org.json.simple.parser.ParseException;
 import simulator.controler.Game_Controller;
 import simulator.model.Deplacement;
 
-// Import des classes de simulator
-
 
 @Path("/cmd")
 public class RobotControlService {
 	
 	private final static String ROBOT_SIMULATOR_LABEL="robot_simulator";
 	private final static String MARCHE_LABEL="marche";
+	
 	private static volatile RobotControlService instance = null;
 	Game_Controller jeu = new Game_Controller();
-	private boolean marche=false; // etat du robot
+	private boolean marche=true; // etat du robot
 	
 	//Inject servlet context (needed to get general context, application memory space, session memory space ...)
 	@Context
