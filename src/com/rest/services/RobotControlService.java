@@ -23,9 +23,8 @@ public class RobotControlService {
 	
 	private final static String ROBOT_SIMULATOR_LABEL="robot_simulator";
 	private final static String MARCHE_LABEL="marche";
-		
-	Game_Controller jeu ;
-	
+	private static volatile RobotControlService instance = null;
+	private Game_Controller jeu;
 	private boolean marche=true; // etat du robot
 	private boolean login=true; // connexion ?
 	
@@ -36,21 +35,28 @@ public class RobotControlService {
 	//After RestService construction launches init method
 		@PostConstruct
 		public void init(){
-			checkRobot();
-		}
-
-		
-		private void checkRobot() {
 			Object obj=context.getAttribute(ROBOT_SIMULATOR_LABEL);
 			if(obj==null){
-
+				this.jeu = new Game_Controller();
+				context.setAttribute(ROBOT_SIMULATOR_LABEL, jeu);
 			}else{
+				this.jeu=(Game_Controller)obj;
 				
 			}
-			
+		}
+		
+		public final static RobotControlService Instance() {
+			if (RobotControlService.instance == null) {
+				synchronized (RobotControlService.class) {
+					if (RobotControlService.instance == null) {
+						RobotControlService.instance = new RobotControlService();
+					}
+				}
+			}
+			return RobotControlService.instance;
 		}
 
-		@POST
+		@POST 
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("START")
 		public String createGame() {

@@ -87,6 +87,10 @@ $(document).ready(function () {
     
     
     
+    
+    
+    
+    
     Highcharts.chart('graph2', {
         chart: {
             type: 'spline',
