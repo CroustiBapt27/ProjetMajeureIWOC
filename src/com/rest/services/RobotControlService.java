@@ -66,6 +66,14 @@ public class RobotControlService {
 		
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
+		@Path("REFRESH")
+		public String refresh() {
+	
+			return "Start Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
 		@Path("CHECK1")
 		public String showRobot() {
 			return "showRobot Done";

@@ -1,10 +1,13 @@
 package simulator.model;
 
+import java.util.ArrayList;
+
 public class Mesures {
 	private int nbr_commande=0;
 	private int nbr_obs_rencontre=0;
 	private int nbr_obs_visible=0;
 	private int distance=0;
+	ArrayList<int[]> historique_deplacement=new ArrayList<int[]>();
 	
 	public int getNbr_commande(){
 		return this.nbr_commande;
@@ -54,6 +57,10 @@ public class Mesures {
 	
 	public void setDistance(int distance){
 		this.distance = distance;
+	}
+	
+	public void addHistorique(int tab_coord[]) {
+		historique_deplacement.add(tab_coord);
 	}
 	
 	public void afficherMesures() {
