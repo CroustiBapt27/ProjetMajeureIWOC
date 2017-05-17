@@ -53,6 +53,30 @@ public class Test_Game_Controller {
 		System.out.println("Mesures\n");
 		jeu.getRobot_jeu().getMesures_robot().afficherMesures();
 		
+		jeu.deplacement_robot(Deplacement.RIGHT_ARROW);
+		System.out.println(jeu.getRobot_jeu().getX_robot());
+		System.out.println(jeu.getRobot_jeu().getY_robot());
+		System.out.println("Environnement du jeu\n");
+		jeu.getEnvironnement_jeu().afficherEnvironnement();
+		System.out.println("_________________________________________\n");
+		System.out.println("Environnement du robot\n");
+		jeu.getEnvironnement_robot().afficherEnvironnement();
+		System.out.println("_________________________________________\n");
+		System.out.println("Mesures\n");
+		jeu.getRobot_jeu().getMesures_robot().afficherMesures();
+		
+		jeu.deplacement_robot(Deplacement.RIGHT_ARROW);
+		System.out.println(jeu.getRobot_jeu().getX_robot());
+		System.out.println(jeu.getRobot_jeu().getY_robot());
+		System.out.println("Environnement du jeu\n");
+		jeu.getEnvironnement_jeu().afficherEnvironnement();
+		System.out.println("_________________________________________\n");
+		System.out.println("Environnement du robot\n");
+		jeu.getEnvironnement_robot().afficherEnvironnement();
+		System.out.println("_________________________________________\n");
+		System.out.println("Mesures\n");
+		jeu.getRobot_jeu().getMesures_robot().afficherMesures();
+		
 		assertTrue(true);
 	}
 

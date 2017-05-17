@@ -17,6 +17,7 @@ public class Game_Controller {
 		this.robot_jeu = new Robot(x_depart,y_depart,orientation_depart,x_matrice,y_matrice);
 		this.environnement_jeu = new Environnement(x_matrice,y_matrice,proba);
 		this.robot_jeu.majEnvi_robot(robot_jeu.getX_robot(),robot_jeu.getY_robot(),robot_jeu.getOrient_robot());
+		System.out.println("Je passe ici \n");
 	}
 	
 	public void deplacement_robot(Deplacement arrow){

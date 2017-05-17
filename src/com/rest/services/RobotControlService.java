@@ -25,7 +25,8 @@ public class RobotControlService {
 	private final static String MARCHE_LABEL="marche";
 	
 	private static volatile RobotControlService instance = null;
-	Game_Controller jeu = new Game_Controller();
+	
+	Game_Controller jeu ;
 	private boolean marche=true; // etat du robot
 	
 	//Inject servlet context (needed to get general context, application memory space, session memory space ...)
@@ -58,6 +59,7 @@ public class RobotControlService {
 				// multiple même par différents "threads".
 				synchronized (RobotControlService.class) {
 					if (RobotControlService.instance == null) {
+						Game_Controller jeu = new Game_Controller();
 						RobotControlService.instance = new RobotControlService();
 					}
 				}
@@ -108,6 +110,10 @@ public class RobotControlService {
 				}
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.UP_ARROW);
+					jeu.getEnvironnement_jeu().afficherEnvironnement();
+					System.out.println("_________________________________________\n");
+					System.out.println("Environnement du robot\n");
+					jeu.getEnvironnement_robot().afficherEnvironnement();
 					etat="OK";
 				}
 				JSONObject objAuth = new JSONObject();
@@ -124,17 +130,16 @@ public class RobotControlService {
 		public String goDown(String jsonData) {
 			String etat="KO";
 			if(this.marche==true){ // Robot en marche ?
-				JSONParser parser=new JSONParser();
-				JSONObject data=null;
-				try {
-					data=(JSONObject)parser.parse(jsonData);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+				
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.DOWN_ARROW);
+					jeu.getEnvironnement_jeu().afficherEnvironnement();
+					System.out.println("_________________________________________\n");
+					System.out.println("Environnement du robot\n");
+					jeu.getEnvironnement_robot().afficherEnvironnement();
 					etat="OK";
 				}
+				
 				JSONObject objAuth = new JSONObject();
 				objAuth.put("DOWN ",etat);
 				return objAuth.toJSONString();
@@ -149,15 +154,13 @@ public class RobotControlService {
 		public String goLeft(String jsonData) {
 			String etat="KO";
 			if(this.marche==true){ // Robot en marche ?
-				JSONParser parser=new JSONParser();
-				JSONObject data=null;
-				try {
-					data=(JSONObject)parser.parse(jsonData);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+				
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.LEFT_ARROW);
+					jeu.getEnvironnement_jeu().afficherEnvironnement();
+					System.out.println("_________________________________________\n");
+					System.out.println("Environnement du robot\n");
+					jeu.getEnvironnement_robot().afficherEnvironnement();
 					etat="OK";
 				}
 				JSONObject objAuth = new JSONObject();
@@ -173,15 +176,13 @@ public class RobotControlService {
 		public String goRight(String jsonData) {
 			String etat="KO";
 			if(this.marche==true){ // Robot en marche ?
-				JSONParser parser=new JSONParser();
-				JSONObject data=null;
-				try {
-					data=(JSONObject)parser.parse(jsonData);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+				
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.RIGHT_ARROW);
+					jeu.getEnvironnement_jeu().afficherEnvironnement();
+					System.out.println("_________________________________________\n");
+					System.out.println("Environnement du robot\n");
+					jeu.getEnvironnement_robot().afficherEnvironnement();
 					etat="OK";
 				}
 				JSONObject objAuth = new JSONObject();
