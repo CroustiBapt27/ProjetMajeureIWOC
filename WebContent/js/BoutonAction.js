@@ -104,6 +104,15 @@ $(document).ready(function(){
 					});    
 		});
 		
+		// ____________ REFRESH ____________
+		$("#ButtonRefresh").click(function(){
+			$.post("rest/cmd/REFRESH",
+					{},
+					function(data,status){
+						alert("Post Done received data: " + data + "\nStatus: " + status);
+					});    
+		});
+		
 		// ____________ STOP ____________
 		$("#ButtonStop").click(function(){
 			$.post("rest/cmd/STOP",
