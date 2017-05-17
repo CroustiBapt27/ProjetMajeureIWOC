@@ -85,6 +85,7 @@ public class RobotControlService {
 			return "auto-mapping Done";
 		}
 		
+		
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("UP")
