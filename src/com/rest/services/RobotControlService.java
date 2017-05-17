@@ -177,24 +177,6 @@ public class RobotControlService {
 			return etat;
 		}
 		
-		@POST
-		@Produces(MediaType.TEXT_PLAIN)
-		@Path("START")
-		public String startRobot() {
-			this.marche=true;
-			context.setAttribute(MARCHE_LABEL, marche);
-			return "START Done";
-		}
-		
-		@POST
-		@Produces(MediaType.TEXT_PLAIN)
-		@Path("STOP")
-		public String stopRobot() {
-			this.marche=false;
-			context.setAttribute(MARCHE_LABEL, marche);
-			return "STOP Done";
-		}
-		
 		@GET
 		@Produces(MediaType.APPLICATION_JSON)
 		@Path("env")
