@@ -59,6 +59,7 @@ public class Robot {
 		if(case_jeu == 1){
 			x_robot = tab_coord[0];
 			y_robot = tab_coord[1];
+			mesures_robot.addHistorique(tab_coord);
 			mesures_robot.majDistance();
 		}
 		if(case_jeu != 1){
