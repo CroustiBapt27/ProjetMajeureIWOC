@@ -53,8 +53,9 @@ public class RobotControlService {
 		@POST
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("START")
-		private void createGame() {
+		public String createGame() {
 			jeu=new Game_Controller();
+			return "Start Done";
 		}
 		
 		@POST
