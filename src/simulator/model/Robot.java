@@ -26,7 +26,7 @@ public class Robot {
 		tab_coord_temp[0]=0;
 		tab_coord_temp[1]=0;
 		
-		if(Deplacement.LEFT_ARROW.equals(arrow) && y_robot >1 ) {
+		if(Deplacement.LEFT_ARROW.equals(arrow) && y_robot >=1 ) {
 			this.orient_robot=Orientation.GAUCHE;
 			tab_coord_temp[0]=x_robot;
 			tab_coord_temp[1]=y_robot-1;
@@ -36,7 +36,7 @@ public class Robot {
 			tab_coord_temp[0]=x_robot;
 			tab_coord_temp[1]=y_robot+1;
 		}
-		if(Deplacement.DOWN_ARROW.equals(arrow) && x_robot >1) {
+		if(Deplacement.DOWN_ARROW.equals(arrow) && x_robot >=1) {
 			this.orient_robot=Orientation.BAS;
 			tab_coord_temp[0]=x_robot+1;
 			tab_coord_temp[1]=y_robot;
