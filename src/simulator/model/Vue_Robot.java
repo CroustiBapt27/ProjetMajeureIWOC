@@ -82,8 +82,9 @@ public class Vue_Robot {
 			return nb_obstacle;
 		}
 		
-		public static int majObstacle_visible(Environnement env_jeu, int[][] masque, int x_robot, int y_robot, Orientation orientation_robot){
+		public static int majObstacle_visible(Environnement env_jeu, int x_robot, int y_robot, Orientation orientation_robot){
 			int obstacle_visible=0;
+			int masque[][]=Vue_Robot.orienter_masque(orientation_robot);
 			for(int j = 0; j < masque[0].length; j++){					
 	            for(int i = 0; i < masque.length; i++){ 
 	            	if(masque[i][j]==1) {
