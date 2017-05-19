@@ -69,6 +69,7 @@ public class RobotControlService {
 		@Path("START")
 		public String createGame() {
 			jeu=new Game_Controller();
+			context.setAttribute(ROBOT_SIMULATOR_LABEL, jeu);
 			return "Start Done";
 		}
 		

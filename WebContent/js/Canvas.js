@@ -70,7 +70,7 @@ for(i in data.data[2].value){
 
 setInterval(function(data, status) {
 	/** ***************************AUTO MAPPING*******************************/
-	if (AutoMapping.checked) {
+	/*if (AutoMapping.checked) {
 		$.ajax({
 			url : 'rest/cmd/AUTOMAPPING', // La ressource ciblée
 			type : 'POST', // Le type de la requête HTTP.
@@ -80,7 +80,7 @@ setInterval(function(data, status) {
 
 			}
 		})
-	}
+	}*/
 		 
 }, 100);
 

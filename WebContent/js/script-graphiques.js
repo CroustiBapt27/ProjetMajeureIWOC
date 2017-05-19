@@ -11,7 +11,7 @@ $(document).ready(function () {
 	});
 		
 	
-	var y_nbr_commande;
+	var y_nbr_commande=0;
 
 
 	// ____________ REFRESH ____________
@@ -22,15 +22,19 @@ $(document).ready(function () {
 				function(data,status){
 					save_data(data);
 					alert("Post Done received data: " + data + "\nStatus: " + status);
+					console.log(data);
 				});
-		consol.log("test :");
-		consol.log(data);
+		console.log("test :");
+		
 		});
 	
 	function save_data(data) {
 		y_nbr_commande =data;
 	}
 	
+
+	
+
     Highcharts.chart('graph1', {
         chart: {
             type: 'spline',
@@ -42,14 +46,14 @@ $(document).ready(function () {
                     var series = this.series[0];
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
-                            y = y_nbr_commande;
+                            y = parseInt(y_nbr_commande);
                         series.addPoint([x, y], true, true);
                     }, 5000);
                 }
             }
         },
         title: {
-            text: 'Distance traveled'
+            text: 'Number of command entered'
         },
         xAxis: {
             type: 'datetime',
@@ -79,7 +83,7 @@ $(document).ready(function () {
             enabled: false
         },
         series: [{
-            name: 'Distance traveled',
+            name: 'Obstacles encountered',
             data: (function () {
                 // generate an array of random data
                 var data = [],
@@ -97,18 +101,8 @@ $(document).ready(function () {
         }]
     });
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+	
+	
     
     Highcharts.chart('graph2', {
         chart: {
@@ -121,7 +115,7 @@ $(document).ready(function () {
                     var series = this.series[0];
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
-                            y = Math.random();
+                            y = parseInt(y_nbr_commande);
                         series.addPoint([x, y], true, true);
                     }, 5000);
                 }
@@ -181,7 +175,7 @@ $(document).ready(function () {
     
     
     
-    
+ /*   
     Highcharts.chart('graph3', {
         chart: {
             type: 'spline',
@@ -248,7 +242,7 @@ $(document).ready(function () {
         }]
     });
     
-    
+   */ 
     
     
     
