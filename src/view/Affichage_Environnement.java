@@ -25,7 +25,7 @@ public class Affichage_Environnement {
 	public int bord = 30;
 	public int obstacle = 10;
 	
-	public static void remplirEnvironnemenent(int matrice_env[][]){
+	public static void reactualiser_vue_Environnemenent(int matrice_env[][]){
 		int indice = 0 ; 
 	
 		for(int j = 0; j < matrix_width; j++){ // parcours sur les lignes
@@ -91,7 +91,7 @@ public static void main(String args[]){ //TEST
 		int matrice_env[][] = jeu.getEnvironnement_jeu().getEnvironnement();
 
 		env.afficherEnvironnement();
-		remplirEnvironnemenent(matrice_env);
+		reactualiser_vue_Environnemenent(matrice_env);
 				
 	}
 

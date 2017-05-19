@@ -105,12 +105,19 @@ public class Environnement {
             System.out.println();
 		}
 	}
-	
-	
+	public int[][] multiplicationTableau(int[][] matrice) {
+		 int [][] resultat = new int[taille_x][taille_y];
+		 for(int i = 0; i < taille_x; i++){				
+	            for(int j = 0; j < taille_y; j++){
+	            	resultat[i][j]=this.matrice_env[i][j]*matrice[i][j];
+	            }
+		 }
+		 return resultat;
+	 }
 	/*public static void main(String[] args) {		//test (a mettre en commentaire)
 		Environnement grille= new Environnement(7,9,0.15); 
 		grille.afficherEnvironnement();
 	}*/
-	
+	 
 	
 }
