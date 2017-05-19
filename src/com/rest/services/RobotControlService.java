@@ -56,6 +56,14 @@ public class RobotControlService {
 			return RobotControlService.instance;
 		}
 
+		
+		@POST 
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("NB_COMMANDES")
+		public int recupNbCommandes() {		
+			return jeu.getRobot_jeu().getMesures_robot().getNbr_commande();
+		}
+		
 		@POST 
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("START")

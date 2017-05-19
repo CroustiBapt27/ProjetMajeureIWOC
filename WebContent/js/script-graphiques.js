@@ -11,6 +11,25 @@ $(document).ready(function () {
 	});
 		
 	
+	var y_nbr_commande;
+
+
+	// ____________ REFRESH ____________
+	$("#ButtonRefresh").click(function(){
+		
+		$.post("rest/cmd/NB_COMMANDES",
+				{},
+				function(data,status){
+					save_data(data);
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});
+		consol.log("test :");
+		consol.log(data);
+		});
+	
+	function save_data(data) {
+		y_nbr_commande =data;
+	}
 	
     Highcharts.chart('graph1', {
         chart: {
@@ -23,9 +42,9 @@ $(document).ready(function () {
                     var series = this.series[0];
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
-                            y = Math.random();
+                            y = y_nbr_commande;
                         series.addPoint([x, y], true, true);
-                    }, 1000);
+                    }, 5000);
                 }
             }
         },
@@ -104,7 +123,7 @@ $(document).ready(function () {
                         var x = (new Date()).getTime(), // current time
                             y = Math.random();
                         series.addPoint([x, y], true, true);
-                    }, 1000);
+                    }, 5000);
                 }
             }
         },
