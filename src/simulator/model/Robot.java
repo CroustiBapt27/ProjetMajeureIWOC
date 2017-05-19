@@ -23,8 +23,8 @@ public class Robot {
 	public int[] deplacement_ontab(Deplacement arrow){ //vérifie la sortie de case
 		int [] tab_coord_temp;
 		tab_coord_temp = new int [2];
-		tab_coord_temp[0]=0;
-		tab_coord_temp[1]=0;
+		tab_coord_temp[0]=-1;
+		tab_coord_temp[1]=-1;
 		
 		if(Deplacement.LEFT_ARROW.equals(arrow) && y_robot >=1 ) {
 			this.orient_robot=Orientation.GAUCHE;
@@ -47,7 +47,7 @@ public class Robot {
 			tab_coord_temp[1]=y_robot;
 		}
 		
-		if(tab_coord_temp[0]!=0 && tab_coord_temp[1]!=0){
+		if(tab_coord_temp[0]!=-1 && tab_coord_temp[1]!=-1){
 			mesures_robot.majCommande();
 			
 		}

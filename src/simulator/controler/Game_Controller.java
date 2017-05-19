@@ -25,7 +25,7 @@ public class Game_Controller {
 		tab_coord_temp = new int [2];
 		tab_coord_temp = robot_jeu.deplacement_ontab(arrow);
 		
-		if(tab_coord_temp[0] != 0 && tab_coord_temp[1] != 0){
+		if(tab_coord_temp[0] != -1 && tab_coord_temp[1] != -1){
 			int case_jeu;
 			case_jeu=environnement_jeu.getCellule(tab_coord_temp[0], tab_coord_temp[1]);
 			this.robot_jeu.deplacement_case(case_jeu, tab_coord_temp);
