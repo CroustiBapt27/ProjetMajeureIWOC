@@ -66,6 +66,27 @@ public class RobotControlService {
 		
 		@POST 
 		@Produces(MediaType.TEXT_PLAIN)
+		@Path("DISTANCE")
+		public int recupDistance() {		
+			return jeu.getRobot_jeu().getMesures_robot().getDistance();
+		}
+		
+		@POST 
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("NB_OBS_VISIBLE")
+		public int recupNbObstacleVisible() {		
+			return jeu.getRobot_jeu().getMesures_robot().getMbr_obs_visible();
+		}
+		
+		@POST 
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("NB_OBS_RENCONTRE")
+		public int recupNbObstacleRencontre() {		
+			return jeu.getRobot_jeu().getMesures_robot().getMbr_obs_rencontre();
+		}
+		
+		@POST 
+		@Produces(MediaType.TEXT_PLAIN)
 		@Path("START")
 		public String createGame() {
 			jeu=new Game_Controller();

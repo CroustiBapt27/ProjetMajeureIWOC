@@ -12,6 +12,9 @@ $(document).ready(function () {
 		
 	
 	var y_nbr_commande=0;
+	var y_distance = 0;
+	var y_nbr_obstacle_visible=0;
+	var y_nbr_obstacle_rencontre=0;
 
 
 	// ____________ REFRESH ____________
@@ -28,8 +31,12 @@ $(document).ready(function () {
 		
 		});
 	
-	function save_data(data) {
+	function save_data_commande(data) {
 		y_nbr_commande =data;
+	}
+	
+	function save_data_distance(data) {
+		y_distance =data;
 	}
 	
 
@@ -41,9 +48,17 @@ $(document).ready(function () {
             animation: Highcharts.svg, // don't animate in old IE
             events: {
                 load: function () {
-
+                	
                     // set up the updating of the chart each second
                     var series = this.series[0];
+                    setInterval(function () {
+                    	$.post("rest/cmd/NB_COMMANDES",
+                				{},
+                				function(data,status){
+                					save_data_commande(data);
+                					console.log(data);
+                				});
+                    }, 1000);
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
                             y = parseInt(y_nbr_commande);
@@ -114,8 +129,16 @@ $(document).ready(function () {
                     // set up the updating of the chart each second
                     var series = this.series[0];
                     setInterval(function () {
+                    	$.post("rest/cmd/DISTANCE",
+                				{},
+                				function(data,status){
+                					save_data_distance(data);
+                					console.log(data);
+                				});
+                    }, 1000);
+                    setInterval(function () {
                         var x = (new Date()).getTime(), // current time
-                            y = parseInt(y_nbr_commande);
+                            y = parseInt(y_distance);
                         series.addPoint([x, y], true, true);
                     }, 5000);
                 }
