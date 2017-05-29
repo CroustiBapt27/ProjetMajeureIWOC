@@ -22,10 +22,10 @@ import simulator.model.Deplacement;
 public class RobotControlService {
 	
 	private final static String ROBOT_SIMULATOR_LABEL="robot_simulator";
-	private final static String MARCHE_LABEL="marche";
+	private final static String MARCHE_LABEL="ready";
 	private static volatile RobotControlService instance = null;
 	private Game_Controller jeu;
-	private boolean marche=true; // etat du robot
+	private boolean marche; // etat du robot
 	private boolean login=true; // connexion ?
 	
 	//Inject servlet context (needed to get general context, application memory space, session memory space ...)
@@ -37,11 +37,21 @@ public class RobotControlService {
 		public void init(){
 			Object obj=context.getAttribute(ROBOT_SIMULATOR_LABEL);
 			if(obj==null){
+				
 				this.jeu = new Game_Controller();
 				context.setAttribute(ROBOT_SIMULATOR_LABEL, jeu);
 			}else{
 				this.jeu=(Game_Controller)obj;
 				
+			}
+			
+			Object obj_marche=context.getAttribute(MARCHE_LABEL);
+			if(obj==null){
+				this.marche = false;
+				context.setAttribute(MARCHE_LABEL, marche);
+			}
+			else {
+				this.marche=(boolean)obj_marche;
 			}
 		}
 		
@@ -222,6 +232,18 @@ public class RobotControlService {
 			}		
 			return etat;
 		}
+		
+		
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("ADMIN_START")
+		public String admin_start() {
+			this.marche = true;
+			context.setAttribute(MARCHE_LABEL, marche);
+			return "admin_start Done";
+		}
+		
 		
 		@GET
 		@Produces(MediaType.APPLICATION_JSON)

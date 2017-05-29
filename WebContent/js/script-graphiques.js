@@ -113,9 +113,9 @@ $(document).ready(function () {
                     time = (new Date()).getTime(),
                     i;
 
-                for (i = -19; i <= 0; i += 1) {
+                for (i = -9; i <= 0; i += 1) {
                     data.push({
-                        x: time + i * 1000,
+                        x: time + i * 5000,
                         y: 0
                     });
                 }
@@ -143,7 +143,7 @@ $(document).ready(function () {
                 					save_data_distance(data);
                 					console.log(data);
                 				});
-                    }, 1000);
+                    }, 900);
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
                             y = parseInt(y_distance);
@@ -190,9 +190,9 @@ $(document).ready(function () {
                     time = (new Date()).getTime(),
                     i;
 
-                for (i = -19; i <= 0; i += 1) {
+                for (i = -9; i <= 0; i += 1) {
                     data.push({
-                        x: time + i * 1000,
+                        x: time + i * 5000,
                         y: 0
                     });
                 }
@@ -218,7 +218,7 @@ $(document).ready(function () {
                 					save_data_nbr_obstacle_visible(data);
                 					console.log(data);
                 				});
-                    }, 1000);
+                    }, 900);
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
                             y = parseInt(y_nbr_obstacle_visible);
@@ -265,9 +265,9 @@ $(document).ready(function () {
                     time = (new Date()).getTime(),
                     i;
 
-                for (i = -19; i <= 0; i += 1) {
+                for (i = -9; i <= 0; i += 1) {
                     data.push({
-                        x: time + i * 1000,
+                        x: time + i * 5000,
                         y: 0
                     });
                 }
@@ -295,7 +295,7 @@ $(document).ready(function () {
                 					save_data_nbr_obstacle_rencontre(data);
                 					console.log(data);
                 				});
-                    }, 1000);
+                    }, 900);
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
                             y = parseInt(y_nbr_obstacle_rencontre);
@@ -342,9 +342,9 @@ $(document).ready(function () {
                     time = (new Date()).getTime(),
                     i;
 
-                for (i = -19; i <= 0; i += 1) {
+                for (i = -9; i <= 0; i += 1) {
                     data.push({
-                        x: time + i * 1000,
+                        x: time + i * 5000,
                         y: 0
                     });
                 }

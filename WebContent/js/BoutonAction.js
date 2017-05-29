@@ -104,6 +104,15 @@ $(document).ready(function(){
 						alert("Post Done received data: " + data + "\nStatus: " + status);
 					});    
 		});
+		
+		// ____________ ADMIN START ____________
+		$("#ButtonAdminStart").click(function(){
+			$.post("rest/cmd/ADMIN_START",
+					{},
+					function(data,status){
+						alert("Post Done received data: " + data + "\nStatus: " + status);
+					});    
+		});
 });
 
 
