@@ -75,14 +75,14 @@ public class RobotControlService {
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("NB_OBS_VISIBLE")
 		public int recupNbObstacleVisible() {		
-			return jeu.getRobot_jeu().getMesures_robot().getMbr_obs_visible();
+			return jeu.getRobot_jeu().getMesures_robot().getNbr_obs_visible();
 		}
 		
 		@POST 
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("NB_OBS_RENCONTRE")
 		public int recupNbObstacleRencontre() {		
-			return jeu.getRobot_jeu().getMesures_robot().getMbr_obs_rencontre();
+			return jeu.getRobot_jeu().getMesures_robot().getNbr_obs_rencontre();
 		}
 		
 		@POST 

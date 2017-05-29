@@ -14,11 +14,11 @@ public class Mesures {
 		return this.nbr_commande;
 	}
 	
-	public int getMbr_obs_rencontre(){
+	public int getNbr_obs_rencontre(){
 		return this.nbr_obs_rencontre;
 	}
 	
-	public int getMbr_obs_visible(){
+	public int getNbr_obs_visible(){
 		return this.nbr_obs_visible;
 	}
 	

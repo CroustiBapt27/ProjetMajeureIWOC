@@ -35,6 +35,14 @@ $(document).ready(function () {
 		y_nbr_commande =data;
 	}
 	
+	function save_data_nbr_obstacle_visible(data) {
+		y_nbr_obstacle_visible =data;
+	}
+	
+	function save_data_nbr_obstacle_rencontre(data) {
+		y_nbr_obstacle_rencontre =data;
+	}
+	
 	function save_data_distance(data) {
 		y_distance =data;
 	}
@@ -207,13 +215,13 @@ $(document).ready(function () {
                     	$.post("rest/cmd/NB_OBS_VISIBLE",
                 				{},
                 				function(data,status){
-                					save_data_distance(data);
+                					save_data_nbr_obstacle_visible(data);
                 					console.log(data);
                 				});
                     }, 1000);
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
-                            y = parseInt(y_distance);
+                            y = parseInt(y_nbr_obstacle_visible);
                         series.addPoint([x, y], true, true);
                     }, 5000);
                 }
@@ -284,13 +292,13 @@ $(document).ready(function () {
                     	$.post("rest/cmd/NB_OBS_RENCONTRE",
                 				{},
                 				function(data,status){
-                					save_data_distance(data);
+                					save_data_nbr_obstacle_rencontre(data);
                 					console.log(data);
                 				});
                     }, 1000);
                     setInterval(function () {
                         var x = (new Date()).getTime(), // current time
-                            y = parseInt(y_distance);
+                            y = parseInt(y_nbr_obstacle_rencontre);
                         series.addPoint([x, y], true, true);
                     }, 5000);
                 }
