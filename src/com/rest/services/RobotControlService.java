@@ -158,7 +158,7 @@ public class RobotControlService {
 			String etat="KO";
 			if(this.marche==true){ // Robot en marche ?
 	
-				if(true) { // Bien connecté ?
+				if(this.login==true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.UP_ARROW);
 					jeu.getEnvironnement_jeu().afficherEnvironnement();
 					System.out.println("_________________________________________\n");
@@ -270,6 +270,15 @@ public class RobotControlService {
 			this.login = true;
 			context.setAttribute(LOGIN_LABEL, login);
 			return "login Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("DISCONNECT")
+		public String disconnect() {
+			this.login = false;
+			context.setAttribute(LOGIN_LABEL, login);
+			return "disconnect Done";
 		}
 		
 		

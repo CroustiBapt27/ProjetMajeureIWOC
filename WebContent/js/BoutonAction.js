@@ -124,9 +124,18 @@ $(document).ready(function(){
 	
 	
 	
-	// ____________ ADMIN START ____________
-	$("#ButtonLogin").click(function(){
+	// ____________ LOGIN ____________
+	$("#ButtonDisconnect").click(function(){
 		$.post("rest/cmd/LOGIN",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+	});
+	
+	// ____________ DISCONNECT ____________
+	$("#ButtonDisconnect").click(function(){
+		$.post("rest/cmd/DISCONNECT",
 				{},
 				function(data,status){
 					alert("Post Done received data: " + data + "\nStatus: " + status);
