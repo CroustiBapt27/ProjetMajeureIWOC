@@ -23,10 +23,11 @@ public class RobotControlService {
 	
 	private final static String ROBOT_SIMULATOR_LABEL="robot_simulator";
 	private final static String MARCHE_LABEL="ready";
+	private final static String LOGIN_LABEL="loged";
 	private static volatile RobotControlService instance = null;
 	private Game_Controller jeu;
 	private boolean marche; // etat du robot
-	private boolean login=true; // connexion ?
+	private boolean login; // connexion ?
 	
 	//Inject servlet context (needed to get general context, application memory space, session memory space ...)
 	@Context
@@ -43,6 +44,15 @@ public class RobotControlService {
 			}else{
 				this.jeu=(Game_Controller)obj;
 				
+			}
+			
+			Object obj_login=context.getAttribute(LOGIN_LABEL);
+			if(obj==null){
+				this.login = false;
+				context.setAttribute(LOGIN_LABEL, marche);
+			}
+			else {
+				this.login=(boolean)obj_login;
 			}
 			
 			Object obj_marche=context.getAttribute(MARCHE_LABEL);
@@ -242,6 +252,24 @@ public class RobotControlService {
 			this.marche = true;
 			context.setAttribute(MARCHE_LABEL, marche);
 			return "admin_start Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("ADMIN_STOP")
+		public String admin_stop() {
+			this.marche = false;
+			context.setAttribute(MARCHE_LABEL, marche);
+			return "admin_stop Done";
+		}
+		
+		@POST
+		@Produces(MediaType.TEXT_PLAIN)
+		@Path("LOGIN")
+		public String login() {
+			this.login = true;
+			context.setAttribute(LOGIN_LABEL, login);
+			return "login Done";
 		}
 		
 		

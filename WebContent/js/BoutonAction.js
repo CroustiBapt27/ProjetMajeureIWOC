@@ -94,25 +94,45 @@ $(document).ready(function(){
 				});    
 	});
 		
-
+	// ____________ STOP ____________
+	$("#ButtonStop").click(function(){
+		$.post("rest/cmd/STOP",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+	});
 		
-		// ____________ STOP ____________
-		$("#ButtonStop").click(function(){
-			$.post("rest/cmd/STOP",
-					{},
-					function(data,status){
-						alert("Post Done received data: " + data + "\nStatus: " + status);
-					});    
-		});
-		
-		// ____________ ADMIN START ____________
-		$("#ButtonAdminStart").click(function(){
-			$.post("rest/cmd/ADMIN_START",
-					{},
-					function(data,status){
-						alert("Post Done received data: " + data + "\nStatus: " + status);
-					});    
-		});
+	
+	// ____________ ADMIN START ____________
+	$("#ButtonAdminStart").click(function(){
+		$.post("rest/cmd/ADMIN_START",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+	});
+	
+	// ____________ ADMIN STOP ____________
+	$("#ButtonAdminStop").click(function(){
+		$.post("rest/cmd/ADMIN_STOP",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+	});
+	
+	
+	
+	// ____________ ADMIN START ____________
+	$("#ButtonLogin").click(function(){
+		$.post("rest/cmd/LOGIN",
+				{},
+				function(data,status){
+					alert("Post Done received data: " + data + "\nStatus: " + status);
+				});    
+	});
+	
 });
 
 
