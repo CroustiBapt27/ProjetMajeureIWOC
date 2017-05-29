@@ -7,6 +7,7 @@ public class Mesures {
 	private int nbr_obs_rencontre=0;
 	private int nbr_obs_visible=0;
 	private int distance=0;
+	
 	ArrayList<int[]> historique_deplacement=new ArrayList<int[]>();
 	
 	public int getNbr_commande(){
@@ -22,7 +23,7 @@ public class Mesures {
 	}
 	
 	public int getDistance(){
-		return this.nbr_obs_visible;
+		return this.distance;
 	}
 	
 	public void majCommande(){
@@ -34,11 +35,11 @@ public class Mesures {
 	}
 	
 	public void majVisible(){
-		nbr_obs_visible +=1;
+		nbr_obs_visible += 1;
 	}
 	
 	public void majDistance(){
-		distance +=1;
+		distance += 1;
 	}
 	
 	
@@ -51,8 +52,8 @@ public class Mesures {
 		this.nbr_obs_rencontre = nbr_obstacle_rencontre;
 	}
 	
-	public void setNbr_obs_visible (int nbr_obstacle_visible){
-		this.nbr_obs_visible=nbr_obstacle_visible;
+	public void setNbr_obs_visible (int nbr_obs_visible){
+	   this.nbr_obs_visible=nbr_obs_visible;
 	}
 	
 	public void setDistance(int distance){

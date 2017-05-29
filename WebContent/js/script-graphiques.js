@@ -81,7 +81,7 @@ $(document).ready(function () {
             plotLines: [{
                 value: 0,
                 width: 1,
-                color: '#808080'
+                color: '#FF358B'
             }]
         },
         tooltip: {
@@ -108,7 +108,7 @@ $(document).ready(function () {
                 for (i = -19; i <= 0; i += 1) {
                     data.push({
                         x: time + i * 1000,
-                        y: Math.random()
+                        y: 0
                     });
                 }
                 return data;
@@ -145,7 +145,7 @@ $(document).ready(function () {
             }
         },
         title: {
-            text: 'Number of obstacles encountered'
+            text: 'Distance travelled'
         },
         xAxis: {
             type: 'datetime',
@@ -158,7 +158,7 @@ $(document).ready(function () {
             plotLines: [{
                 value: 0,
                 width: 1,
-                color: '#808080'
+                color: '#01B0F0'
             }]
         },
         tooltip: {
@@ -185,7 +185,7 @@ $(document).ready(function () {
                 for (i = -19; i <= 0; i += 1) {
                     data.push({
                         x: time + i * 1000,
-                        y: Math.random()
+                        y: 0
                     });
                 }
                 return data;
@@ -194,11 +194,6 @@ $(document).ready(function () {
     });
     
     
-    
-    
-    
-    
- /*   
     Highcharts.chart('graph3', {
         chart: {
             type: 'spline',
@@ -209,15 +204,23 @@ $(document).ready(function () {
                     // set up the updating of the chart each second
                     var series = this.series[0];
                     setInterval(function () {
-                        var x = (new Date()).getTime(), // current time
-                            y = Math.random();
-                        series.addPoint([x, y], true, true);
+                    	$.post("rest/cmd/NB_OBS_VISIBLE",
+                				{},
+                				function(data,status){
+                					save_data_distance(data);
+                					console.log(data);
+                				});
                     }, 1000);
+                    setInterval(function () {
+                        var x = (new Date()).getTime(), // current time
+                            y = parseInt(y_distance);
+                        series.addPoint([x, y], true, true);
+                    }, 5000);
                 }
             }
         },
         title: {
-            text: 'Number of obstacles encountered'
+            text: 'Obstacles Visible'
         },
         xAxis: {
             type: 'datetime',
@@ -247,7 +250,7 @@ $(document).ready(function () {
             enabled: false
         },
         series: [{
-            name: 'Obstacles encountered',
+            name: 'Obstacles Visible',
             data: (function () {
                 // generate an array of random data
                 var data = [],
@@ -257,7 +260,7 @@ $(document).ready(function () {
                 for (i = -19; i <= 0; i += 1) {
                     data.push({
                         x: time + i * 1000,
-                        y: Math.random()
+                        y: 0
                     });
                 }
                 return data;
@@ -265,11 +268,81 @@ $(document).ready(function () {
         }]
     });
     
-   */ 
     
     
     
+    Highcharts.chart('graph4', {
+        chart: {
+            type: 'spline',
+            animation: Highcharts.svg, // don't animate in old IE
+            events: {
+                load: function () {
+
+                    // set up the updating of the chart each second
+                    var series = this.series[0];
+                    setInterval(function () {
+                    	$.post("rest/cmd/NB_OBS_RENCONTRE",
+                				{},
+                				function(data,status){
+                					save_data_distance(data);
+                					console.log(data);
+                				});
+                    }, 1000);
+                    setInterval(function () {
+                        var x = (new Date()).getTime(), // current time
+                            y = parseInt(y_distance);
+                        series.addPoint([x, y], true, true);
+                    }, 5000);
+                }
+            }
+        },
+        title: {
+            text: 'Obstacles Seen'
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                    Highcharts.numberFormat(this.y, 2);
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        exporting: {
+            enabled: false
+        },
+        series: [{
+            name: 'Obstacles Seen',
+            data: (function () {
+                // generate an array of random data
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: 0
+                    });
+                }
+                return data;
+            }())
+        }]
+    });
     
-    
-    
-});
+    });

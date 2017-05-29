@@ -98,6 +98,7 @@ public class Environnement {
 	
 	
 	public void afficherEnvironnement() {
+		System.out.println();
 		for(int i = 0; i < matrice_env.length; i++){					
             for(int j = 0; j < matrice_env[0].length; j++){
             	System.out.print(matrice_env[i][j] + " ");

@@ -120,6 +120,7 @@ public class Vue_Robot {
 	            	
 	            }
 			}
+			System.out.println("\n obstacle visible vue robot : " + obstacle_visible +" \n");
 			return obstacle_visible;
 		}
 		

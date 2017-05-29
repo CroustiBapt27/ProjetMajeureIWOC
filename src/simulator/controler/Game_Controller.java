@@ -6,8 +6,8 @@ public class Game_Controller {
 	
 	private int x_depart=1;
 	private int y_depart=1;
-	private int x_matrice=10;
-	private int y_matrice=10;
+	private int x_matrice=6;
+	private int y_matrice=6;
 	private double proba=0.2;
 	private Orientation orientation_depart=Orientation.HAUT;
 	private Robot robot_jeu;
@@ -37,12 +37,13 @@ public class Game_Controller {
 		
 		int nbr_obstacle_visible = Vue_Robot.majObstacle_visible(this.environnement_jeu, this.robot_jeu.getX_robot(),
 				this.robot_jeu.getY_robot(), this.robot_jeu.getOrient_robot());
+		System.out.println("\n" + nbr_obstacle_visible +" \n");
 		
 		int nbr_obstacle_rencontre = Vue_Robot.majObstacle_rencontre(this.environnement_jeu, this.robot_jeu.getEnvi_robot());
 		
 		//TODO maj compteur obstacle vu et visible
 		this.robot_jeu.majMesures(nbr_obstacle_visible, nbr_obstacle_rencontre);
-		
+		this.robot_jeu.getMesures_robot().afficherMesures();
 	}
 	
 
