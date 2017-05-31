@@ -27,23 +27,25 @@ public class UserDao {
 	
 	public void addUser(UserModelBean user) {
 		try {
+			System.out.println("Je passe la fin de add user");
 			connection = java.sql.DriverManager.getConnection("jdbc:mysql://"+ dB_HOST + ":" + dB_PORT + "/" + dB_NAME, dB_USER, dB_PWD);
-			
-			PreparedStatement querySt= connection.prepareStatement("INSERT INTO DB_WEBDYN (surname, lastname, age, login, pwd) "
+			/*PreparedStatement querySt= connection.prepareStatement("INSERT INTO binome01.UsersRobot (surname, lastname, login, pwd) "
 			+ "VALUES (?,?,?,?)");
 			querySt.setString(1,user.getSurname());
 			querySt.setString(2,user.getLastname());
-			querySt.setString(4,user.getLogin());
-			querySt.setString(5,user.getPwd());
+			querySt.setString(3,user.getLogin());
+			querySt.setString(4,user.getPwd());
 			
 			querySt.executeUpdate();
 			
-			querySt.close();
+			querySt.close();*/
 			connection.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("Je passe l'erreur de add user");
 		}
+
 	}
 
 	public ArrayList<UserModelBean> getAllUser(){

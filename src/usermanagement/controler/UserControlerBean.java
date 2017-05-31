@@ -1,17 +1,19 @@
 package usermanagement.controler;
 
 import java.util.Map;
+
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+
 import usermanagement.model.LoginBean;
 import usermanagement.model.UserModelBean;
 import usermanagement.model.UserSubmissionModelBean;
 import usermanagement.dao.fabric.DaoFabric;
 import usermanagement.dao.model.UserDao;
 
-@ManagedBean
+@ManagedBean 
 @ApplicationScoped // application scope pour offrir un point d'entrée unique à l'ensemble des clients
 public class UserControlerBean {
 	
@@ -36,7 +38,7 @@ public class UserControlerBean {
 		}
 		else {
 			//redirect the current page
-			return "userLogin.xhtml";
+			return "userLogin.jsf";
 		}
 	}
 	
@@ -68,13 +70,15 @@ public class UserControlerBean {
 			valid=false;
 		}	
 
+		System.out.println("Je passe les etapes de verif des valeurs");
 		//ajout de l'utilisateur à la base de données
 		if(valid){
+			System.out.println("Je passe le if du controler");
 			this.userDao.addUser(userSubmitted);
 			return "index.xhtml";
 		}
 		
-		return "userLogin.xhtml";
+		return "userLogin.jsf";
 			
 	}
 }

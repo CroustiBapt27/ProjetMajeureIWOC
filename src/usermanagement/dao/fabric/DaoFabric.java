@@ -5,7 +5,6 @@ import usermanagement.dao.model.UserDao;
 public class DaoFabric {
 
 	private static volatile DaoFabric instance = null;
-	
 	private static final String DB_HOST="db-tp.cpe.fr";
 	private static final String DB_PORT="3306";
 	private static final String DB_NAME="binome01";
