@@ -54,12 +54,7 @@ public class UserControlerBean {
 		if(userSubmitted.getLastname().length()>10 || userSubmitted.getLastname().length()<3){
 			valid=false;
 		}
-		
-		int age=Integer.valueOf(userSubmitted.getAge());
-		if( age <1 || age >150){
-			valid=false;
-		}
-		
+
 		// check login attribute lenght (other check could be made e.g regex)
 		if(userSubmitted.getLogin().length()>10 || userSubmitted.getLogin().length()<3){
 			valid=false;
