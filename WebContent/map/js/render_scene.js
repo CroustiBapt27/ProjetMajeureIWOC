@@ -57,5 +57,5 @@ $(function() {
     }
   };
 
-  scene.load("pkm");
+  scene.load("");
 });
