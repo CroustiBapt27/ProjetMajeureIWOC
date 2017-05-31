@@ -75,7 +75,7 @@ public class Affichage_Environnement {
 										data_verdure.add(1);
 									}
 									else{
-										data_verdure.add(0);
+										data_verdure.add(1);
 									}
 							}
 						}
