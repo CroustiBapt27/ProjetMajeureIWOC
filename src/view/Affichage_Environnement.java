@@ -234,7 +234,7 @@ public static void main(String args[]){ //TEST
 		
 		//String json = creation_matrice_JSON(matrice_env);
 		
-		System.out.println(json);
+		//System.out.println(json);
 
 	}
 
