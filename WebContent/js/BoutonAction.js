@@ -111,7 +111,7 @@ $(document).ready(function(){
 		$.post("rest/cmd/UP",
 				{},
 				function(data,status){
-					alert("Post Done received data: " + data + "\nStatus: " + status);
+					//alert("Post Done received data: " + data + "\nStatus: " + status);
 				}); 
 		maj_map();
 		});
@@ -121,7 +121,7 @@ $(document).ready(function(){
 		$.post("rest/cmd/DOWN",
 				{},
 				function(data,status){
-					alert("Post Done received data: " + data + "\nStatus: " + status);
+					//alert("Post Done received data: " + data + "\nStatus: " + status);
 				});  
 		maj_map();
 		});
@@ -131,7 +131,7 @@ $(document).ready(function(){
 		$.post("rest/cmd/LEFT",
 				{},
 				function(data,status){
-					alert("Post Done received data: " + data + "\nStatus: " + status);
+					//alert("Post Done received data: " + data + "\nStatus: " + status);
 				});  
 		maj_map();
 		});
@@ -141,7 +141,7 @@ $(document).ready(function(){
 		$.post("rest/cmd/RIGHT",
 				{},
 				function(data,status){
-					alert("Post Done received data: " + data + "\nStatus: " + status);
+					//alert("Post Done received data: " + data + "\nStatus: " + status);
 				});    
 		maj_map();
 	});

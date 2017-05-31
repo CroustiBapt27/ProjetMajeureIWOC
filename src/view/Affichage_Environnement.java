@@ -58,9 +58,9 @@ public class Affichage_Environnement {
 			            */
 					
 					//System.out.println(pkm["layers"][0]["data"][i]);
-					//syntaxe fausse mais l'idée est là
+					//syntaxe fausse mais l'idï¿½e est lï¿½
 					
-	public static String creation_matrice_JSON(int matrice_env[][]){
+	public static String creation_matrice_JSON(int matrice_env[][], int x_robot,int y_robot){
 		JSONObject objContainer = new JSONObject();
 
 		objContainer.put("height",30);
@@ -69,7 +69,7 @@ public class Affichage_Environnement {
 
 				JSONArray data_verdure = new JSONArray();
 						
-						for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modèle
+						for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modï¿½le
 							for (int k=0;k<matrice_env[0].length;k++){ //height
 									if (matrice_env[j][k]==1){
 										data_verdure.add(1);
@@ -100,10 +100,14 @@ public class Affichage_Environnement {
 				JSONArray data_obstacles = new JSONArray();
 
 					
-					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modèle
+					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modï¿½le
 						for (int k=0;k<matrice_env[0].length;k++){
 								if (matrice_env[j][k]==3){
 									data_obstacles.add(10);
+								}
+								else if (x_robot==j&&y_robot==k)
+								{
+									data_obstacles.add(30);
 								}
 								else{
 									data_obstacles.add(0);
@@ -131,11 +135,12 @@ public class Affichage_Environnement {
 				//for (int i=0;i<1200;i++) //1200 = 30 * 40
 
 						
-					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modèle
+					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modï¿½le
 						for (int k=0;k<matrice_env[0].length;k++){
 								if (matrice_env[j][k]==2){
 									data_black.add(2910);
 								}
+								
 								else{
 									data_black.add(0);
 								}
@@ -227,7 +232,7 @@ public static void main(String args[]){ //TEST
 		}
 		
 		
-		String json = creation_matrice_JSON(matrice_env);
+		//String json = creation_matrice_JSON(matrice_env);
 		
 		System.out.println(json);
 
