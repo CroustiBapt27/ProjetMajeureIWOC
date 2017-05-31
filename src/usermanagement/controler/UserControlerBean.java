@@ -36,12 +36,11 @@ public class UserControlerBean {
 		}
 		else {
 			//redirect the current page
-			System.out.println("ELSE PD");
 			return "userLogin.xhtml";
 		}
 	}
 	
-	public void checkAndAddUser(UserSubmissionModelBean userSubmitted){
+	public String checkAndAddUser(UserSubmissionModelBean userSubmitted){
 		//Vérifier les propriétés de l'utilisateur
 		boolean valid=true;
 		
@@ -70,7 +69,12 @@ public class UserControlerBean {
 		}	
 
 		//ajout de l'utilisateur à la base de données
-		if(valid)				
+		if(valid){
 			this.userDao.addUser(userSubmitted);
+			return "index.xhtml";
+		}
+		
+		return "userLogin.xhtml";
+			
 	}
 }
