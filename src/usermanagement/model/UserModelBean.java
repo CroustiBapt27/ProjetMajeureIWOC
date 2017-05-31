@@ -15,19 +15,19 @@ public class UserModelBean implements Serializable{
 	private String	surname;
 	private String 	login;
 	private String 	pwd;
-	private int age;
+	private boolean admin;
 	
 	// Constructeur sans paramètres (contrainte du bean) :
 	public UserModelBean() {
 	}
 	// Constructeur :
-	public UserModelBean(String lastname,String surname,int age,String login,String pwd)
+	public UserModelBean(String lastname,String surname,String login,String pwd, boolean admin)
 	{
 		this.lastname	=	lastname;
 		this.surname	=	surname;
 		this.login		=	login;
 		this.pwd 		=	pwd;
-		this.age 		= 	age;
+		this.admin 		= 	admin;
 	}
 	
 	// Accesseurs noramlisés :
@@ -39,8 +39,9 @@ public class UserModelBean implements Serializable{
 	public void setLogin(String login) 			{ this.login = login; }
 	public String getPwd() 						{ return pwd; }
 	public void setPwd(String pwd) 				{ this.pwd = pwd; }
-	public int getAge()							{ return age; 	}
-	public void setAge(int age)					{this.age = age; }
+	public boolean getAdmin() 						{ return admin; }
+	public void setAdmin(boolean admin) 				{ this.admin = admin; }
+
 	
 	@Override
 	public String toString() {

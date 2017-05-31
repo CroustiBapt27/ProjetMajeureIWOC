@@ -29,16 +29,17 @@ public class UserDao {
 		try {
 			System.out.println("Je passe la fin de add user");
 			connection = java.sql.DriverManager.getConnection("jdbc:mysql://"+ dB_HOST + ":" + dB_PORT + "/" + dB_NAME, dB_USER, dB_PWD);
-			/*PreparedStatement querySt= connection.prepareStatement("INSERT INTO binome01.UsersRobot (surname, lastname, login, pwd) "
-			+ "VALUES (?,?,?,?)");
+			PreparedStatement querySt= connection.prepareStatement("INSERT INTO binome01.UsersRobot (surname, lastname, login, pwd,admin) "
+			+ "VALUES (?,?,?,?,false)");
 			querySt.setString(1,user.getSurname());
 			querySt.setString(2,user.getLastname());
 			querySt.setString(3,user.getLogin());
 			querySt.setString(4,user.getPwd());
 			
+			System.out.println("REQUEST:"+querySt.toString());
 			querySt.executeUpdate();
 			
-			querySt.close();*/
+			querySt.close();
 			connection.close();
 			
 		} catch (SQLException e) {
@@ -57,13 +58,13 @@ public class UserDao {
 			java.sql.Statement query = null;
 			ResultSet rs = null;
 			query=connection.createStatement();
-			rs=query.executeQuery("SELECT * FROM binome19.DB_WEBDYN");
+			rs=query.executeQuery("SELECT * FROM binome01.UsersRobot");
 			
-			PreparedStatement st = connection.prepareStatement("SELECT * FROM binome19.DB_WEBDYN");
+			PreparedStatement st = connection.prepareStatement("SELECT * FROM binome01.UsersRobot");
 			rs = st.executeQuery();
 			
 			while (rs.next()){
-				UserModelBean userModel = new UserModelBean(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4),rs.getString(5));
+				UserModelBean userModel = new UserModelBean(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getBoolean(5));
 				System.out.println(userModel.toString());
 				userList.add(userModel);
 			}
@@ -84,15 +85,15 @@ public class UserDao {
 			connection = java.sql.DriverManager.getConnection("jdbc:mysql://"+ dB_HOST + ":" + dB_PORT + "/" + dB_NAME, dB_USER, dB_PWD);
 
 			ResultSet rs = null;		
-			PreparedStatement st = connection.prepareStatement("SELECT * FROM binome19.DB_WEBDYN WHERE (login=?) AND (pwd=?) ");
+			PreparedStatement st = connection.prepareStatement("SELECT * FROM binome01.UsersRobot WHERE (login=?) AND (pwd=?) ");
 			
 			st.setString(1,login);
 			st.setString(2,pwd);
+			
 			rs = st.executeQuery();
 			
 			while(rs.next()){
-			userModel = new UserModelBean(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4),rs.getString(5));
-			System.out.println(userModel.toString());
+			userModel = new UserModelBean(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getBoolean(5));
 			}
 			
 			rs.close();
@@ -114,13 +115,14 @@ public class UserDao {
 			connection = java.sql.DriverManager.getConnection("jdbc:mysql://"+ dB_HOST + ":" + dB_PORT + "/" + dB_NAME, dB_USER, dB_PWD);
 
 			ResultSet rs = null;		
-			PreparedStatement st = connection.prepareStatement("SELECT * FROM binome19.DB_WEBDYN WHERE (login IS ?)");
+			PreparedStatement st = connection.prepareStatement("SELECT * FROM binome01.UsersRobot WHERE login = ?;");
 			
 			st.setString(1,login);
+			
 			rs = st.executeQuery();
 			
 			while(rs.next()){
-			userModel = new UserModelBean(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4),rs.getString(5));
+			userModel = new UserModelBean(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getBoolean(5));
 			System.out.println(userModel.toString());
 			valid=true;
 			}

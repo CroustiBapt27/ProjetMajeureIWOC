@@ -26,15 +26,16 @@ public class UserControlerBean {
 	public String checkUser(LoginBean loginBean){
 		
 		UserModelBean user = this.userDao.checkUser(loginBean.getLogin(),loginBean.getPwd());
-		
+
 		if( user!=null){
+			System.out.println("User: je passe ");
 			//récupère l'espace mémoire de JSF
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			Map<String, Object> sessionMap = externalContext.getSessionMap();
 			//place l'utilisateur dans l'espace de mémoire de JSF
 			sessionMap.put("loggedUser", user);
 			//redirect the current page
-			return "admin.xhtml";
+			return "index.xhtml";
 		}
 		else {
 			//redirect the current page
@@ -45,40 +46,40 @@ public class UserControlerBean {
 	public String checkAndAddUser(UserSubmissionModelBean userSubmitted){
 		//Vérifier les propriétés de l'utilisateur
 		boolean valid=true;
-		
 		// check surname attribute lenght (other check could be made e.g regex)
-		if(userSubmitted.getSurname().length()>10 || userSubmitted.getSurname().length()<3){
-			valid=false;
-		}
-		
-		// check lastname attribute lenght (other check could be made e.g regex)
-		if(userSubmitted.getLastname().length()>10 || userSubmitted.getLastname().length()<3){
-			valid=false;
-		}
+			if(userSubmitted.getSurname().length()>10 || userSubmitted.getSurname().length()<3){
+				valid=false;
+			}
+			
+			// check lastname attribute lenght (other check could be made e.g regex)
+			if(userSubmitted.getLastname().length()>10 || userSubmitted.getLastname().length()<3){
+				valid=false;
+			}
 
-		// check login attribute lenght (other check could be made e.g regex)
-		if(userSubmitted.getLogin().length()>10 || userSubmitted.getLogin().length()<3){
-			valid=false;
-		}
-		
-		if(userDao.checkLogin(userSubmitted.getLogin())){
-			valid=false;
-		}
-		
-		// check pwd attribute lenght (other check could be made e.g regex)
-		if(userSubmitted.getPwd().length()>10 || userSubmitted.getPwd().length()<3){
-			valid=false;
-		}	
+			// check login attribute lenght (other check could be made e.g regex)
+			if(userSubmitted.getLogin().length()>10 || userSubmitted.getLogin().length()<3){
+				valid=false;
+			}
+			
+			if(userDao.checkLogin(userSubmitted.getLogin())){
+				valid=false;
+			}
+			
+			// check pwd attribute lenght (other check could be made e.g regex)
+			if(userSubmitted.getPwd().length()>10 || userSubmitted.getPwd().length()<3){
+				valid=false;
+			}	
 
-		System.out.println("Je passe les etapes de verif des valeurs");
-		//ajout de l'utilisateur à la base de données
-		if(valid){
-			System.out.println("Je passe le if du controler");
-			this.userDao.addUser(userSubmitted);
-			return "index.xhtml";
-		}
+			
+			//ajout de l'utilisateur à la base de données
+			if(valid){
+				this.userDao.addUser(userSubmitted);
+				return "userLogin.jsf";
+			}
 		
-		return "userLogin.jsf";
+		
+		
+		return "createAccount.jsf";
 			
 	}
 }
