@@ -77,6 +77,7 @@ $(document).ready(function(){
 				function(data,status){
 					alert("Post Done received data: " + data + "\nStatus: " + status);
 				});    
+		maj_map();
 		});
 	
 	// ____________ CHECK 2 ____________
