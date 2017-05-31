@@ -51,7 +51,7 @@ $(function() {
     },
     load: function(name) {
       return $.ajax({
-        url: "\/ProjetMajeureIWOC/rest/\cmd/map",
+        url: "\/ProjetMajeureIWOC/rest/\cmd/mapy",
         dataType: "text json"
       }).done($.proxy(this.loadTileset, this));
     }
