@@ -13,7 +13,6 @@ public class UserModelBean implements Serializable{
 	// Propiétés :
 	private String	lastname;
 	private String	surname;
-	private int 	age;
 	private String 	login;
 	private String 	pwd;
 	
@@ -25,7 +24,6 @@ public class UserModelBean implements Serializable{
 	{
 		this.lastname	=	lastname;
 		this.surname	=	surname;
-		this.age		=	age;
 		this.login		=	login;
 		this.pwd 		=	pwd;
 	}
@@ -35,8 +33,6 @@ public class UserModelBean implements Serializable{
 	public void setLastname(String lastname) 	{ this.lastname = lastname; }
 	public String getSurname() 					{ return surname;}
 	public void setSurname(String surname) 		{ this.surname = surname; }
-	public int getAge() 						{ return age; }
-	public void setAge(int age) 				{ this.age = age; }
 	public String getLogin() 					{ return login; }
 	public void setLogin(String login) 			{ this.login = login; }
 	public String getPwd() 						{ return pwd; }
@@ -44,6 +40,6 @@ public class UserModelBean implements Serializable{
 	
 	@Override
 	public String toString() {
-	return "[SURNAME]:"+this.getSurname()+",[LASTNAME]:"+this.getLastname()+",[AGE]:"+this.getAge()+",[LOGIN]:"+this.getLogin()+",[PWD]:"+this.getPwd();
+	return "[SURNAME]:"+this.getSurname()+",[LASTNAME]:"+this.getLastname()+",[LOGIN]:"+this.getLogin()+",[PWD]:"+this.getPwd();
 	}
 }

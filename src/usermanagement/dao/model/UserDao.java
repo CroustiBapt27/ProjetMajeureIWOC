@@ -30,10 +30,9 @@ public class UserDao {
 			connection = java.sql.DriverManager.getConnection("jdbc:mysql://"+ dB_HOST + ":" + dB_PORT + "/" + dB_NAME, dB_USER, dB_PWD);
 			
 			PreparedStatement querySt= connection.prepareStatement("INSERT INTO DB_WEBDYN (surname, lastname, age, login, pwd) "
-			+ "VALUES (?,?,?,?,?)");
+			+ "VALUES (?,?,?,?)");
 			querySt.setString(1,user.getSurname());
 			querySt.setString(2,user.getLastname());
-			querySt.setInt(3,user.getAge());
 			querySt.setString(4,user.getLogin());
 			querySt.setString(5,user.getPwd());
 			
