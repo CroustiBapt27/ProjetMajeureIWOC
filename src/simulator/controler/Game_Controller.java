@@ -7,7 +7,7 @@ public class Game_Controller {
 	private int x_depart=1;
 	private int y_depart=1;
 	private int x_matrice=40;
-	private int y_matrice=40;
+	private int y_matrice=30;
 	private double proba=0.2;
 	private Orientation orientation_depart=Orientation.HAUT;
 	private Robot robot_jeu;

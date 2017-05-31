@@ -68,16 +68,19 @@ public class Affichage_Environnement {
 			JSONObject layer_verdure = new JSONObject();
 
 				JSONArray data_verdure = new JSONArray();
-				//for (int i=0;i<1200;i++){ //1200 = 30 * 40						
+						
 						for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modèle
-							for (int k=0;k<matrice_env.length;k++){
+							for (int k=0;k<matrice_env[0].length;k++){ //height
 									if (matrice_env[j][k]==1){
 										data_verdure.add(1);
+									}
+									else{
+										data_verdure.add(0);
 									}
 							}
 						}
 				System.out.println(data_verdure);
-				
+				System.out.println(data_verdure.size());		
 				
 						
 				layer_verdure.put("data", data_verdure);
@@ -95,16 +98,22 @@ public class Affichage_Environnement {
 				JSONObject layer_obstacles = new JSONObject();
 
 				JSONArray data_obstacles = new JSONArray();
-				//for (int i=0;i<1200;i++) //1200 = 30 * 40
+
 					
 					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modèle
-						for (int k=0;k<matrice_env.length;k++){
+						for (int k=0;k<matrice_env[0].length;k++){
 								if (matrice_env[j][k]==3){
 									data_obstacles.add(10);
 								}
+								else{
+									data_obstacles.add(0);
+								}
 						}
 					}
-						
+				
+				System.out.println(data_obstacles);
+				System.out.println(data_obstacles.size());
+				
 				layer_obstacles.put("data", data_obstacles);
 				layer_obstacles.put("height", 30);
 				layer_obstacles.put("name", "Obstacles");
@@ -115,7 +124,7 @@ public class Affichage_Environnement {
 				layer_obstacles.put("x", 0);
 				layer_obstacles.put("y", 0);
 
-
+						
 				JSONObject layer_black = new JSONObject();
 
 				JSONArray data_black = new JSONArray();
@@ -123,13 +132,18 @@ public class Affichage_Environnement {
 
 						
 					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du modèle
-						for (int k=0;k<matrice_env.length;k++){
+						for (int k=0;k<matrice_env[0].length;k++){
 								if (matrice_env[j][k]==2){
 									data_black.add(2910);
 								}
+								else{
+									data_black.add(0);
+								}
 						}
 					}
-						
+				System.out.println(data_black);	
+				System.out.println(data_black.size());
+				
 				layer_black.put("data", data_black);
 				layer_black.put("height", 30);
 				layer_black.put("name", "black");
@@ -182,120 +196,10 @@ public class Affichage_Environnement {
 		objContainer.put("version",1);
 		objContainer.put("width",40);
 		
-		System.out.print(objContainer);
+
 		
 		return objContainer.toJSONString();
 
-			/* -----------------caractéristiques communes ---------
-
-		JSONObject height = new JSONObject();
-			height.put("height", new Integer(30));
-
-
-
-		JSONObject height_little = new JSONObject();
-			height_little.put("height", new Integer(30));
-
-
-
-		JSONObject opacity = new JSONObject();
-			opacity.put("opacity", new Integer(1));
-
-		JSONObject type = new JSONObject();
-				type.put("type","tilelayer");
-
-		JSONObject visible = new JSONObject();
-				visible.put("visible",true);
-
-		JSONObject width_little = new JSONObject();
-			width_little.put("height", new Integer(30));
-
-		JSONObject x = new JSONObject();
-			x.put("x", new Integer(0));
-		JSONObject y = new JSONObject();
-			y.put("y", new Integer(0));
-
-		-----------------caractéristiques communes ---------*/
-
-
-
-			/* -----------------caractéristiques communes ---------
-		JSONObject nextobjectid = new JSONObject();
-			nextobjectid.put("nextobjectid", new Integer(1));
-
-		JSONObject orientation = new JSONObject();
-				orientation.put("orientation","orthogonal");
-
-		JSONObject renderorder = new JSONObject();
-				renderorder.put("renderorder","left-up");
-
-		JSONObject tileheight = new JSONObject();
-			tileheight.put("tileheight", new Integer(16));
-
-			 -----------------caractéristiques communes ---------*/
-
-
-
-		/*
-
-		JSONArray tilesets = new JSONArray();
-			JSONObject columns = new JSONObject();
-				columns.put("columns", new Integer(8));
-			JSONObject firstgid = new JSONObject();
-				firstgid.put("firstgid", new Integer(1));
-			JSONObject image = new JSONObject();
-				image.put("image","\/ProjetMajeureIWOC/map\/images\/tileset-pkm.png");
-			JSONObject imageheight = new JSONObject();
-				imageheights.put("imageheight", new Integer(15971));
-			JSONObject imagewidth = new JSONObject();
-				imagewidth.put("imagewidth", new Integer(128));
-			JSONObject margin = new JSONObject();
-				margin.put("margin", new Integer(0));
-			JSONObject name = new JSONObject();
-				name.put("name","pkm");
-			JSONObject spacing = new JSONObject();
-				spacing.put("spacing", new Integer(0));
-			JSONObject tilecount = new JSONObject();
-				tilecount.put("tilecount", new Integer(7984));
-			JSONObject tileheight_little = new JSONObject();
-				tileheight_little.put("tileheight", new Integer(16));
-			JSONObject tilewidth_little = new JSONObject();
-				tilewidth_little.put("tilewidth", new Integer(16));
-
-		tilesets.add(columns);
-		tilesets.add(firstgid);
-		tilesets.add(image);
-		tilesets.add(imageheight);
-		tilesets.add(imagewidth);
-		tilesets.add(margin);
-		tilesets.add(name);
-		tilesets.add(spacing);
-		tilesets.add(tilecount);
-		tilesets.add(tileheight_little);
-		tilesets.add(tilewidth_little);
-
-		*/
-			/* -----------------caractéristiques communes ---------*/
-		/*
-
-		JSONObject tilewidth= new JSONObject();
-			tilewidth.put("tilewidth", new Integer(16));
-
-		JSONObject version = new JSONObject();
-			version.put("version", new Integer(1));
-
-		JSONObject width = new JSONObject();
-			width.put("width", new Integer(40));
-
-		*/
-
-
-
-
-
-
-
-		
 	}
 	
 	
@@ -311,31 +215,22 @@ public static void main(String args[]){ //TEST
 		
 		int matrice_env[][] = jeu.getEnvironnement_jeu().getEnvironnement();
 
-		/*env.afficherEnvironnement();
+		System.out.println(matrice_env.length); //40 width
+		System.out.println(matrice_env[0].length); //30 height
 		
-		reactualiser_vue_Environnemenent(matrice_env);*/
-		
-		
-		System.out.println(matrice_env.length);
-		/*for (int i=0; i<matrice_env.length; i++) {
+		for (int i=0; i<matrice_env.length; i++) {
+			System.out.println("u");
 			for (int j=0; j<matrice_env[0].length; j++){
 				
-				System.out.println(matrice_env[i][j]);
+				System.out.print(matrice_env[i][j]);
 			}
 		}
-		*/
+		
+		
 		String json = creation_matrice_JSON(matrice_env);
 		
 		System.out.println(json);
-		/* JSONObject obj = new JSONObject();
 
-	      obj.put("name", "foo");
-	      obj.put("num", new Integer(100));
-	      obj.put("balance", new Double(1000.21));
-	      obj.put("is_vip", new Boolean(true));
-
-	      System.out.print(obj);
-				*/
 	}
 
 	
