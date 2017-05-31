@@ -9,7 +9,7 @@ public class Game_Controller {
 	private int x_matrice=30;
 	private int y_matrice=40;
 	private double proba=0.2;
-	private Orientation orientation_depart=Orientation.HAUT;
+	private Orientation orientation_depart=Orientation.BAS;
 	private Robot robot_jeu;
 	private Environnement environnement_jeu;
 	
