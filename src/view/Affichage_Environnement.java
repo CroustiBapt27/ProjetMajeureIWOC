@@ -136,7 +136,7 @@ public class Affichage_Environnement {
 				JSONArray data_black = new JSONArray();
 					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du mod�le
 						for (int k=0;k<matrice_env[0].length;k++){
-								if (matrice_env[j][k]==0){ 
+								if (matrice_env[j][k]==0){ // 0
 									data_black.add(2910);
 								}
 								
@@ -164,7 +164,7 @@ public class Affichage_Environnement {
 				//LAYER BORDURES
 
 				
-				/*JSONObject layer_bordures = new JSONObject();
+				JSONObject layer_bordures = new JSONObject();
 
 				JSONArray data_bordures = new JSONArray();
 						
@@ -191,14 +191,13 @@ public class Affichage_Environnement {
 				layer_bordures.put("width", 40);
 				layer_bordures.put("x", 0);
 				layer_bordures.put("y", 0);
-*/
 				
 				//AJOUT DES LAYERS
 				JSONArray layers = new JSONArray();
 				layers.add(layer_verdure);
 				layers.add(layer_obstacles);
 				layers.add(layer_black);
-		//		layers.add(layer_bordures);
+			layers.add(layer_bordures);
 
 				
 				
