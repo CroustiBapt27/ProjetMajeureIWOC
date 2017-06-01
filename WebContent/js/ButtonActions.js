@@ -1,3 +1,5 @@
+//code flèches directionelles
+
 document.onkeydown = function(e) {
     switch (e.keyCode) {
         case 37:
@@ -16,7 +18,7 @@ document.onkeydown = function(e) {
     				});  
     		maj_map();
             break;
-        case 39:
+        case 39: 
         	$.post("rest/cmd/RIGHT",
     				{},
     				function(data,status){
