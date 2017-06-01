@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <head>
 	<title>Create account</title>
@@ -49,25 +50,25 @@
 		<div class="cadre-connection" align="center">
 			<div class="login-form">
 				<div class="form-group">
-					<h:inputText type="text" class="form-control login-field" placeholder="Name" value="#{userSubmissionModelBean.lastname}"
+					<h:inputText type="text" class="form-control login-field" a:placeholder="Name" value="#{userSubmissionModelBean.lastname}"
 						 id="login-lastname"></h:inputText> <label
 						class="login-field-icon" for="login-name"></label>
 				</div>
 				
 				<div class="form-group">
-					<h:inputText type="text" class="form-control login-field" placeholder="Surname" value="#{userSubmissionModelBean.surname}"
+					<h:inputText type="text" class="form-control login-field" a:placeholder="Surname" value="#{userSubmissionModelBean.surname}"
 						 id="login-surname"></h:inputText> <label
 						class="login-field-icon" for="login-name"></label>
 				</div>
 				
 				<div class="form-group">
-					<h:inputText type="text" class="form-control login-field" placeholder="Login" value="#{userSubmissionModelBean.login}"
+					<h:inputText type="text" class="form-control login-field" a:placeholder="Login" value="#{userSubmissionModelBean.login}"
 						 id="login-login"></h:inputText> <label
 						class="login-field-icon fui-user" for="login-name"></label>
 				</div>
 	
 				<div class="form-group">
-					<h:inputSecret type="password" class="form-control login-field" placeholder="Password" value="#{userSubmissionModelBean.pwd}"
+					<h:inputSecret type="password" class="form-control login-field" a:placeholder="Password" value="#{userSubmissionModelBean.pwd}"
 						 id="login-pass"></h:inputSecret> <label
 						class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>

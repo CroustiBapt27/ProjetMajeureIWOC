@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <head>
 	<title>Login</title>
@@ -57,13 +58,13 @@
 				<h:form>
 				<div class="form-group">
 					<h:inputText type="text" class="form-control login-field" value="#{loginBean.login}"
-						placeholder="Enter your login" id="login-name"></h:inputText> <label
+						a:placeholder="Login" id="login-name"></h:inputText> <label
 						class="login-field-icon fui-user" for="login-name"></label>
 				</div>
 	
 				<div class="form-group">
 					<h:inputSecret type="password" class="form-control login-field" value="#{loginBean.pwd}"
-						placeholder="Password" id="login-pass"></h:inputSecret> <label
+						a:placeholder="Password" id="login-pass"></h:inputSecret> <label
 						class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
 	
