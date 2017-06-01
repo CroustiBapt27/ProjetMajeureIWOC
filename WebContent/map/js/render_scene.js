@@ -29,6 +29,7 @@ $(function() {
           s_y = ~~(i / layer.width) * size;
           s.drawImage(scene.tileset, img_x, img_y, size, size,
                       s_x, s_y, size, size);
+          
         });
         scene.layers.push(s.canvas.toDataURL());
         c.drawImage(s.canvas, 0, 0);

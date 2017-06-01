@@ -43,7 +43,6 @@ public class RobotControlService {
 	private Game_Controller jeu;
 	private boolean marche; // etat du robot
 	private boolean login; // connexion ?
-	private boolean show_robot;
 	
 	//Inject servlet context (needed to get general context, application memory space, session memory space ...)
 	@Context
@@ -56,7 +55,6 @@ public class RobotControlService {
 			if(obj==null){
 				
 				this.jeu = new Game_Controller();
-				show_robot=true;
 				context.setAttribute(ROBOT_SIMULATOR_LABEL, jeu);
 			}else{
 				this.jeu=(Game_Controller)obj;
@@ -79,15 +77,6 @@ public class RobotControlService {
 			}
 			else {
 				this.marche=(boolean)obj_marche;
-			}
-			Object obj_show_robot=context.getAttribute(SHOW_ROBOT);
-			if(obj==null){
-				this.show_robot = true;
-				context.setAttribute(SHOW_ROBOT, show_robot);
-			}
-			else {
-				this.show_robot=(boolean)obj_show_robot;
-				//System.out.println(show_robot);
 			}
 		}
 		
@@ -152,7 +141,6 @@ public class RobotControlService {
 		@Produces(MediaType.TEXT_PLAIN)
 		@Path("CHECK1")
 		public String showRobot() {
-			show_robot= !(show_robot);
 			return "showRobot Done";
 			
 		}
@@ -189,10 +177,10 @@ public class RobotControlService {
 	
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.UP_ARROW);
-					jeu.getEnvironnement_jeu().afficherEnvironnement();
+					/*jeu.getEnvironnement_jeu().afficherEnvironnement();
 					System.out.println("_________________________________________\n");
 					System.out.println("Environnement du robot\n");
-					jeu.getEnvironnement_robot().afficherEnvironnement();
+					jeu.getEnvironnement_robot().afficherEnvironnement();*/
 					etat="OK";
 				}
 				
@@ -213,10 +201,10 @@ public class RobotControlService {
 				
 				if(true) { // Bien connecté ? this.marche==true
 					jeu.deplacement_robot(Deplacement.DOWN_ARROW);
-					jeu.getEnvironnement_jeu().afficherEnvironnement();
+					/*jeu.getEnvironnement_jeu().afficherEnvironnement();
 					System.out.println("_________________________________________\n");
 					System.out.println("Environnement du robot\n");
-					jeu.getEnvironnement_robot().afficherEnvironnement();
+					jeu.getEnvironnement_robot().afficherEnvironnement();*/
 					etat="OK";
 				}
 				
@@ -238,10 +226,10 @@ public class RobotControlService {
 				
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.LEFT_ARROW);
-					jeu.getEnvironnement_jeu().afficherEnvironnement();
+					/*jeu.getEnvironnement_jeu().afficherEnvironnement();
 					System.out.println("_________________________________________\n");
 					System.out.println("Environnement du robot\n");
-					jeu.getEnvironnement_robot().afficherEnvironnement();
+					jeu.getEnvironnement_robot().afficherEnvironnement();*/
 					etat="OK";
 				}
 				JSONObject objAuth = new JSONObject();
@@ -261,10 +249,10 @@ public class RobotControlService {
 				
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.RIGHT_ARROW);
-					jeu.getEnvironnement_jeu().afficherEnvironnement();
+					/*jeu.getEnvironnement_jeu().afficherEnvironnement();
 					System.out.println("_________________________________________\n");
 					System.out.println("Environnement du robot\n");
-					jeu.getEnvironnement_robot().afficherEnvironnement();
+					jeu.getEnvironnement_robot().afficherEnvironnement();*/
 					etat="OK";
 				}
 				JSONObject objAuth = new JSONObject();
@@ -359,8 +347,7 @@ public class RobotControlService {
 		@Path("map")
 		public String getMap()
 				{
-					String map=Affichage_Environnement.creation_matrice_JSON(jeu.getEnvironnement_jeu().multiplicationTableau(jeu.getRobot_jeu().getEnvi_robot().getEnvironnement()),jeu.getRobot_jeu().getX_robot(),jeu.getRobot_jeu().getY_robot(),show_robot);
-
+					String map=Affichage_Environnement.creation_matrice_JSON(jeu.getEnvironnement_jeu().multiplicationTableau(jeu.getRobot_jeu().getEnvi_robot().getEnvironnement()),jeu.getRobot_jeu().getX_robot(),jeu.getRobot_jeu().getY_robot());
 					return map;
 				}
 
