@@ -64,7 +64,7 @@ public class RobotControlService {
 			Object obj_login=context.getAttribute(LOGIN_LABEL);
 			if(obj==null){
 				this.login = false;
-				context.setAttribute(LOGIN_LABEL, marche);
+				context.setAttribute(LOGIN_LABEL, login);
 			}
 			else {
 				this.login=(boolean)obj_login;
@@ -173,7 +173,7 @@ public class RobotControlService {
 		public String goUp(String jsonData) {
 			String etat="KO";
 			(jeu.getEnvironnement_jeu().getEnvironnement())[15][12]=2;
-			if(true){ // Robot en marche ?  this.marche==true
+			if(marche){ // Robot en marche ?  this.marche==true
 	
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.UP_ARROW);
@@ -197,7 +197,7 @@ public class RobotControlService {
 		public String goDown(String jsonData) {
 			String etat="KO";
 			(jeu.getEnvironnement_jeu().getEnvironnement())[14][12]=2;
-			if(true){ // Robot en marche ?
+			if(marche){ // Robot en marche ?
 				
 				if(true) { // Bien connecté ? this.marche==true
 					jeu.deplacement_robot(Deplacement.DOWN_ARROW);
@@ -222,7 +222,7 @@ public class RobotControlService {
 		public String goLeft(String jsonData) {
 			String etat="KO";
 			(jeu.getEnvironnement_jeu().getEnvironnement())[13][12]=2;
-			if(true){ // Robot en marche ? this.marche==true
+			if(marche){ // Robot en marche ? this.marche==true
 				
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.LEFT_ARROW);
@@ -245,7 +245,7 @@ public class RobotControlService {
 		public String goRight(String jsonData) {
 			String etat="KO";
 			(jeu.getEnvironnement_jeu().getEnvironnement())[12][12]=2;
-			if(true){ // Robot en marche ?  this.marche==true
+			if(marche){ // Robot en marche ?  this.marche==true
 				
 				if(true) { // Bien connecté ?
 					jeu.deplacement_robot(Deplacement.RIGHT_ARROW);
