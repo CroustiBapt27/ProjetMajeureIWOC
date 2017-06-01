@@ -60,7 +60,7 @@ public class Affichage_Environnement {
 					//System.out.println(pkm["layers"][0]["data"][i]);
 					//syntaxe fausse mais l'id�e est l�
 					
-	public static String creation_matrice_JSON(int matrice_env[][], int x_robot,int y_robot){
+	public static String creation_matrice_JSON(int matrice_env[][], int x_robot,int y_robot,boolean show_robot){
 		JSONObject objContainer = new JSONObject();
 
 		objContainer.put("height",30);
@@ -105,7 +105,7 @@ public class Affichage_Environnement {
 								if (matrice_env[j][k]==3){
 									data_obstacles.add(10);
 								}
-								else if (x_robot==j&&y_robot==k)
+								else if (x_robot==j&&y_robot==k&&show_robot)
 								{
 									data_obstacles.add(30);
 								}
