@@ -28,14 +28,18 @@ public class UserControlerBean {
 		UserModelBean user = this.userDao.checkUser(loginBean.getLogin(),loginBean.getPwd());
 
 		if( user!=null){
-			System.out.println("User: je passe ");
-			//récupère l'espace mémoire de JSF
-			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-			Map<String, Object> sessionMap = externalContext.getSessionMap();
-			//place l'utilisateur dans l'espace de mémoire de JSF
-			sessionMap.put("loggedUser", user);
-			//redirect the current page
-			return "index.xhtml";
+			if(user.getAdmin()){
+				return "admin.xhtml";
+			}
+			else{
+				//récupère l'espace mémoire de JSF
+				ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+				Map<String, Object> sessionMap = externalContext.getSessionMap();
+				//place l'utilisateur dans l'espace de mémoire de JSF
+				sessionMap.put("loggedUser", user);
+				//redirect the current page
+				return "index.xhtml";
+			}
 		}
 		else {
 			//redirect the current page
