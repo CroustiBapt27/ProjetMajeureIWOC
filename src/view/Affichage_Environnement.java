@@ -64,14 +64,15 @@ public class Affichage_Environnement {
 		JSONObject objContainer = new JSONObject();
 
 		objContainer.put("height",30);
-
-			JSONObject layer_verdure = new JSONObject();
+		
+		// LAYER VERDURE
+				JSONObject layer_verdure = new JSONObject();
 
 				JSONArray data_verdure = new JSONArray();
 						
 						for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du mod�le
 							for (int k=0;k<matrice_env[0].length;k++){ //height
-									if (matrice_env[j][k]==1){
+									if (matrice_env[j][k]==1){ // = 1
 										data_verdure.add(1);
 									}
 									else{
@@ -93,7 +94,7 @@ public class Affichage_Environnement {
 				layer_verdure.put("x", 0);
 				layer_verdure.put("y", 0);
 
-
+				//LAYER OBSTACLES
 
 				JSONObject layer_obstacles = new JSONObject();
 
@@ -102,7 +103,7 @@ public class Affichage_Environnement {
 					
 					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du mod�le
 						for (int k=0;k<matrice_env[0].length;k++){
-								if (matrice_env[j][k]==3){
+								if (matrice_env[j][k]==3){ // 3
 									data_obstacles.add(10);
 								}
 								else if (x_robot==j&&y_robot==k&&show_robot)
@@ -128,16 +129,14 @@ public class Affichage_Environnement {
 				layer_obstacles.put("x", 0);
 				layer_obstacles.put("y", 0);
 
-						
+				//LAYER BLACK
+				
 				JSONObject layer_black = new JSONObject();
 
 				JSONArray data_black = new JSONArray();
-				//for (int i=0;i<1200;i++) //1200 = 30 * 40
-
-						
 					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du mod�le
 						for (int k=0;k<matrice_env[0].length;k++){
-								if (matrice_env[j][k]==2){
+								if (matrice_env[j][k]==0){ 
 									data_black.add(2910);
 								}
 								
@@ -160,20 +159,56 @@ public class Affichage_Environnement {
 				layer_black.put("y", 0);
 
 
+				
 
-			JSONArray layers = new JSONArray();
-			layers.add(layer_verdure);
-			layers.add(layer_obstacles);
-			layers.add(layer_black);
+				//LAYER BORDURES
 
+				
+				/*JSONObject layer_bordures = new JSONObject();
 
+				JSONArray data_bordures = new JSONArray();
+						
+						for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du mod�le
+							for (int k=0;k<matrice_env[0].length;k++){ //height
+									if (matrice_env[j][k]==2){
+										data_bordures.add(11);
+									}
+									else{
+										data_bordures.add(0);
+									}
+							}
+						}
+				System.out.println(data_bordures);
+				System.out.println(data_verdure.size());		
+				
+						
+				layer_bordures.put("data", data_bordures);
+				layer_bordures.put("height", 30);
+				layer_bordures.put("name", "bordures");
+				layer_bordures.put("opacity", 1);
+				layer_bordures.put("type", "tilelayer");
+				layer_bordures.put("visible", true);
+				layer_bordures.put("width", 40);
+				layer_bordures.put("x", 0);
+				layer_bordures.put("y", 0);
+*/
+				
+				//AJOUT DES LAYERS
+				JSONArray layers = new JSONArray();
+				layers.add(layer_verdure);
+				layers.add(layer_obstacles);
+				layers.add(layer_black);
+		//		layers.add(layer_bordures);
 
-		objContainer.put("layers",layers);
-
-		objContainer.put("nextobjectid",1);
-		objContainer.put("orientation","orthogonal");
-		objContainer.put("renderorder","left-up");
-		objContainer.put("tileheight",16);
+				
+				
+			objContainer.put("layers",layers);
+			
+			
+			objContainer.put("nextobjectid",1);
+			objContainer.put("orientation","orthogonal");
+			objContainer.put("renderorder","left-up");
+			objContainer.put("tileheight",16);
 
 
 			JSONArray tilesets = new JSONArray();
@@ -192,7 +227,6 @@ public class Affichage_Environnement {
 			tileset1.put("tilewidth",16);
 
 			tilesets.add(tileset1);
-
 
 
 		objContainer.put("tilesets",tilesets);
