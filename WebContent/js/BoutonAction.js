@@ -143,6 +143,7 @@ $(document).ready(function(){
 	
 	// ____________ RIGHT ____________
 	$("#ButtonRight").click(function(){
+		show_robot=!show_robot;
 		$.post("rest/cmd/RIGHT",
 				{},
 				function(data,status){
