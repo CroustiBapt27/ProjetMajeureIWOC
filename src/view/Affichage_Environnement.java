@@ -164,7 +164,7 @@ public class Affichage_Environnement {
 				//LAYER BORDURES
 
 				
-				JSONObject layer_bordures = new JSONObject();
+				/*JSONObject layer_bordures = new JSONObject();
 
 				JSONArray data_bordures = new JSONArray();
 						
@@ -191,14 +191,14 @@ public class Affichage_Environnement {
 				layer_bordures.put("width", 40);
 				layer_bordures.put("x", 0);
 				layer_bordures.put("y", 0);
-
+*/
 				
 				//AJOUT DES LAYERS
 				JSONArray layers = new JSONArray();
 				layers.add(layer_verdure);
 				layers.add(layer_obstacles);
 				layers.add(layer_black);
-				layers.add(layer_bordures);
+		//		layers.add(layer_bordures);
 
 				
 				
