@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <!--   HEAD  -->
  <head>
@@ -61,8 +64,11 @@
 					<li class="navbar-left"><a class="fui-gear" href="admin.html"> Robot: running...</a></li>
 				</ul>
 				
+				
+				
 				<ul class="nav navbar-nav navbar-right">
-					<li class="navbar-right"><a id="ButtonDisconnect" class="fui-user" href="userLogin.jsf"> Disconnect</a></li>
+				<li class="navbar-right">
+					<a id="ButtonDisconnect" class="fui-user" href="userLogin.jsf">Bienvenue : <h:outputText value="#{loggedUser.login}" /> (se deconnecter)</a></li>
 				</ul>
 				<form class="navbar-form navbar-right"></form>
 			</div>
