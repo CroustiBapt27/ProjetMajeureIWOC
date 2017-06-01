@@ -2,9 +2,11 @@
  * Gestion des boutons
  * 
  */
+var show_robot = new Boolean(true);
+
 function maj_map() {
   var c = $("canvas")[0].getContext("2d");
-
+  
   var scene = {
     layers: [], 
     renderLayer: function(layer) {
@@ -24,6 +26,7 @@ function maj_map() {
       if (scene.layers.length < scene.data.layers.length) {
         layer.data.forEach(function(tile_idx, i) {
           if (!tile_idx) { return; }
+          if(layer.name=="robot"&&!show_robot) {return ;}
           var img_x, img_y, s_x, s_y,
               tile = scene.data.tilesets[0];
           tile_idx--;
@@ -72,6 +75,7 @@ function maj_map() {
 $(document).ready(function(){
 	// ____________ CHECK 1 ____________
 	$("#checkbox1").click(function(){
+		show_robot=!show_robot;
 		$.post("rest/cmd/CHECK1",
 				{},
 				function(data,status){
