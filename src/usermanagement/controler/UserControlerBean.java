@@ -38,6 +38,7 @@ public class UserControlerBean {
 				//place l'utilisateur dans l'espace de mémoire de JSF
 				sessionMap.put("loggedUser", user);
 				//redirect the current page
+				
 				return "index.xhtml";
 			}
 		}
