@@ -106,10 +106,10 @@ public class Affichage_Environnement {
 								if (matrice_env[j][k]==3){ // 3
 									data_obstacles.add(10);
 								}
-								else if (x_robot==j&&y_robot==k)
+								/*else if (x_robot==j&&y_robot==k)
 								{
 									data_obstacles.add(30);
-								}
+								}*/
 								else{
 									data_obstacles.add(0);
 								}
@@ -192,12 +192,45 @@ public class Affichage_Environnement {
 				layer_bordures.put("x", 0);
 				layer_bordures.put("y", 0);
 				
+				
+					//LAYER robot
+				
+				JSONObject layer_robot = new JSONObject();
+
+				JSONArray data_robot = new JSONArray();
+					for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du mod�le
+						for (int k=0;k<matrice_env[0].length;k++){
+								if (x_robot==j&&y_robot==k){ // 0
+									data_robot.add(30);
+								}
+								
+								else{
+									data_robot.add(0);
+								}
+						}
+					}
+				System.out.println(data_robot);	
+				System.out.println(data_robot.size());
+				
+				layer_robot.put("data", data_robot);
+				layer_robot.put("height", 30);
+				layer_robot.put("name", "robot");
+				layer_robot.put("opacity", 1);
+				layer_robot.put("type", "tilelayer");
+				layer_robot.put("visible", true);
+				layer_robot.put("width", 40);
+				layer_robot.put("x", 0);
+				layer_robot.put("y", 0);
+				
+				
+				
 				//AJOUT DES LAYERS
 				JSONArray layers = new JSONArray();
 				layers.add(layer_verdure);
 				layers.add(layer_obstacles);
 				layers.add(layer_black);
 			layers.add(layer_bordures);
+			layers.add(layer_robot);
 
 				
 				
