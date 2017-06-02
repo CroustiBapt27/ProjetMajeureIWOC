@@ -3,6 +3,7 @@
  * 
  */
 var show_robot = new Boolean(true);
+var show_obstacle = new Boolean(true);
 
 function maj_map() {
   var c = $("canvas")[0].getContext("2d");
@@ -27,6 +28,7 @@ function maj_map() {
         layer.data.forEach(function(tile_idx, i) {
           if (!tile_idx) { return; }
           if(layer.name=="robot"&&!show_robot) {return ;}
+          if(layer.name=="Obstacles"&&!show_obstacle) {return ;}
           var img_x, img_y, s_x, s_y,
               tile = scene.data.tilesets[0];
           tile_idx--;
@@ -95,11 +97,13 @@ $(document).ready(function(){
 	
 	// ____________ CHECK 3 ____________
 	$("#checkbox3").click(function(){
+		show_obstacle=!show_obstacle;
 		$.post("rest/cmd/CHECK3",
 				{},
 				function(data,status){
 					alert("Post Done received data: " + data + "\nStatus: " + status);
 				});    
+		maj_map();
 		});
 	
 	// ____________ CHECK 4 ____________
@@ -143,7 +147,6 @@ $(document).ready(function(){
 	
 	// ____________ RIGHT ____________
 	$("#ButtonRight").click(function(){
-		show_robot=!show_robot;
 		$.post("rest/cmd/RIGHT",
 				{},
 				function(data,status){
