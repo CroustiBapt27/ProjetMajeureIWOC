@@ -8,7 +8,7 @@ public class Mesures {
 	private int nbr_obs_visible=0;
 	private int distance=0;
 	
-	ArrayList<int[]> historique_deplacement=new ArrayList<int[]>();
+	public ArrayList<int[]> historique_deplacement=new ArrayList<int[]>();
 	
 	public int getNbr_commande(){
 		return this.nbr_commande;

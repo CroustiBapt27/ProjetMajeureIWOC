@@ -20,6 +20,7 @@ $(function() {
       if (scene.layers.length < scene.data.layers.length) {
         layer.data.forEach(function(tile_idx, i) {
           if (!tile_idx) { return; }
+          if(layer.name=="chemin") {return ;}
           var img_x, img_y, s_x, s_y,
               tile = scene.data.tilesets[0];
           tile_idx--;

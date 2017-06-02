@@ -347,7 +347,7 @@ public class RobotControlService {
 		@Path("map")
 		public String getMap()
 				{
-					String map=Affichage_Environnement.creation_matrice_JSON(jeu.getEnvironnement_jeu().multiplicationTableau(jeu.getRobot_jeu().getEnvi_robot().getEnvironnement()),jeu.getRobot_jeu().getX_robot(),jeu.getRobot_jeu().getY_robot());
+					String map=Affichage_Environnement.creation_matrice_JSON(jeu.getEnvironnement_jeu().multiplicationTableau(jeu.getRobot_jeu().getEnvi_robot().getEnvironnement()),jeu.getRobot_jeu().getX_robot(),jeu.getRobot_jeu().getY_robot(),jeu.getRobot_jeu().getMesures_robot().historique_deplacement);
 					return map;
 				}
 

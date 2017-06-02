@@ -14,6 +14,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 
@@ -60,7 +61,7 @@ public class Affichage_Environnement {
 					//System.out.println(pkm["layers"][0]["data"][i]);
 					//syntaxe fausse mais l'id�e est l�
 					
-	public static String creation_matrice_JSON(int matrice_env[][], int x_robot,int y_robot){
+	public static String creation_matrice_JSON(int matrice_env[][], int x_robot,int y_robot,ArrayList<int[]> historique_deplacement){
 		JSONObject objContainer = new JSONObject();
 
 		objContainer.put("height",30);
@@ -80,8 +81,8 @@ public class Affichage_Environnement {
 									}
 							}
 						}
-				System.out.println(data_verdure);
-				System.out.println(data_verdure.size());		
+				//System.out.println(data_verdure);
+				//System.out.println(data_verdure.size());		
 				
 						
 				layer_verdure.put("data", data_verdure);
@@ -116,8 +117,8 @@ public class Affichage_Environnement {
 						}
 					}
 				
-				System.out.println(data_obstacles);
-				System.out.println(data_obstacles.size());
+				//System.out.println(data_obstacles);
+				//System.out.println(data_obstacles.size());
 				
 				layer_obstacles.put("data", data_obstacles);
 				layer_obstacles.put("height", 30);
@@ -145,8 +146,8 @@ public class Affichage_Environnement {
 								}
 						}
 					}
-				System.out.println(data_black);	
-				System.out.println(data_black.size());
+				//System.out.println(data_black);	
+				//System.out.println(data_black.size());
 				
 				layer_black.put("data", data_black);
 				layer_black.put("height", 30);
@@ -178,8 +179,8 @@ public class Affichage_Environnement {
 									}
 							}
 						}
-				System.out.println(data_bordures);
-				System.out.println(data_verdure.size());		
+				//System.out.println(data_bordures);
+				//System.out.println(data_verdure.size());		
 				
 						
 				layer_bordures.put("data", data_bordures);
@@ -191,6 +192,42 @@ public class Affichage_Environnement {
 				layer_bordures.put("width", 40);
 				layer_bordures.put("x", 0);
 				layer_bordures.put("y", 0);
+				
+				
+				//LAYER CHEMIN
+
+				boolean case_parcouru=false;
+				JSONObject layer_chemin = new JSONObject();
+
+				JSONArray data_chemin = new JSONArray();
+				for (int j=0;j<matrice_env.length;j++){ //parcours de la MATRICE du mod�le
+					for (int k=0;k<matrice_env[0].length;k++){ //height
+						for (int[] tab:historique_deplacement) {
+							if(j==tab[0]&&k==tab[1]) { case_parcouru=true; }
+						}
+						if(case_parcouru) {
+							data_chemin.add(30);
+						}
+						else {
+							data_chemin.add(0);
+						}
+						case_parcouru=false;
+					}
+				}
+				System.out.println(data_bordures);
+				System.out.println("\n");
+				System.out.println(data_chemin);		
+				
+						
+				layer_chemin.put("data", data_chemin);
+				layer_chemin.put("height", 30);
+				layer_chemin.put("name", "chemin");
+				layer_chemin.put("opacity", 1);
+				layer_chemin.put("type", "tilelayer");
+				layer_chemin.put("visible", true);
+				layer_chemin.put("width", 40);
+				layer_chemin.put("x", 0);
+				layer_chemin.put("y", 0);
 				
 				
 					//LAYER robot
@@ -209,8 +246,8 @@ public class Affichage_Environnement {
 								}
 						}
 					}
-				System.out.println(data_robot);	
-				System.out.println(data_robot.size());
+				//System.out.println(data_robot);	
+				//System.out.println(data_robot.size());
 				
 				layer_robot.put("data", data_robot);
 				layer_robot.put("height", 30);
@@ -231,6 +268,7 @@ public class Affichage_Environnement {
 				layers.add(layer_black);
 			layers.add(layer_bordures);
 			layers.add(layer_robot);
+			layers.add(layer_chemin);
 
 				
 				
