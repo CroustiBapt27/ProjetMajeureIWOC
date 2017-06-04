@@ -62,9 +62,7 @@ public class Robot {
 			mesures_robot.addHistorique(tab_coord);
 			mesures_robot.majDistance();
 		}
-		if(case_jeu != 1){
-			mesures_robot.majRencontre();
-		}
+		
 	}
 	
 	public void majMesures(int nbr_obstacle_visible, int nbr_obs_rencontre){
